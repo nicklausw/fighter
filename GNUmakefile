@@ -12,3 +12,6 @@ gfx/%.rle: gfx/%.chr
 
 gfx/%.chr: gfx/%.bmp
 	tools/snes-tile-tool.py -i $< -o $(subst .bmp,,$<)
+
+clean:
+	rm -f gfx/*.nam gfx/*.pal gfx/*.rle gfx/*.chr
