@@ -112,7 +112,8 @@ function dma {
     php
 
   axy16()
-    stz PPUADDR
+    lda #$4000
+    sta PPUADDR
 
     lda #DMAMODE_PPUDATA
     ldx.w #rle.dat

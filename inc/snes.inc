@@ -518,8 +518,8 @@ constant JOY4H  = JOY2B1CUR+1
 // SEP/REP and generate appropriately wide immediate values.
 
 namespace _REGS_ {
-  variable aSize = 8
-  variable iSize = 8
+  variable aSize = 0
+  variable iSize = 0
 }
 
 //;

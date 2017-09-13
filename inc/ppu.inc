@@ -48,9 +48,25 @@ function msgCopy {
     rts
 }
 
+function sync {
+    php
+  a8()
+  -;bit VBLSTATUS  // wait for leaving previous vblank
+    bmi -
+  -;bit VBLSTATUS  // wait for start of this vblank
+    bpl -
+    plp
+    rts
+}
+
 
 macro copyPalette(palette) {
-    stz CGADDR  // Seek to the start of CGRAM
+    if _REGS_.aSize != 8 {
+        a8()
+    }
+
+    lda #$80
+    sta CGADDR
     databank({palette})
 
     if _REGS_.aSize != 16 || _REGS_.iSize != 16 {

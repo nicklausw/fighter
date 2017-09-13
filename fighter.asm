@@ -3,6 +3,7 @@ include "inc/fighter.inc"
 
 include "inc/data.inc"
 include "inc/ppu.inc"
+include "inc/oam.inc"
 include "inc/rle.inc"
 include "inc/init.inc"
 
@@ -10,14 +11,22 @@ code()
 function Main {
     ppu.copyPalette(palettes.main)
     rle.copy(font)
-    ppu.printMessage(message, NTXY(1,1))
+
+  a16()
+    lda.w #$05
+    sta oam.reserved
+    lda.w #$80
+    sta.w oam.oamTable+0
+    sta.w oam.oamTable+1
+    lda.w #'A'
+    sta.w oam.oamTable+2
 
   a8()
 
-    lda #%00000001  // enable sprites and plane 0
+    lda #%00010001  // enable sprites and plane 0
     sta BLENDMAIN
 
-    lda #$00
+    lda #$0f
     sta PPUBRIGHT
 
     // we want nmi
@@ -27,18 +36,16 @@ function Main {
 
     cli // enable interrupts
 
-    // now to fade in
-    lda #$01
-  fade_in:
-    wai // wait a frame
-    wai // another!
-    sta PPUBRIGHT
-    inc
-    cmp #$10
-    bne fade_in
-
   forever:
     wai
+    
+    xy16()
+    ldx oam.reserved
+    jsr oam.clear
+    jsr oam.packHi
+    jsr ppu.sync
+    jsr oam.copy
+
     bra forever
 }
 
