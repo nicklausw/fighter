@@ -5,15 +5,15 @@ message:; db "This...is bass.", $FF
 
 inline palette(name, file) {
     function {name} {
-        insert {file}
+        insert "../gfx/{file}.pal"
         constant size = pc() - {name}
     }
 }
 
 namespace palettes {
-  palette(main, "gfx.pal")
+  palette(main, gfx)
 }
 
 
 font:
-  insert "gfx.rle"
+  insert "../gfx/gfx.rle"
