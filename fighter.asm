@@ -23,7 +23,7 @@ function Main {
 
   a8()
 
-    lda #%00010001  // enable sprites and plane 0
+    lda #%00010000  // enable sprites and plane 0
     sta BLENDMAIN
 
     lda #$0f
@@ -37,9 +37,27 @@ function Main {
     cli // enable interrupts
 
   forever:
-    wai
+  a8()
+
+    lda JOY1CUR+1
+    and.b #KEY_RIGHT >> 8
+    beq +
+
+    lda oam.oamTable+0
+    clc; adc #$03
+    sta oam.oamTable+0
+
+  +;lda JOY1CUR+1
+    and.b #KEY_LEFT >> 8
+    beq +
+
+    lda oam.oamTable+0
+    sec; sbc #$03
+    sta oam.oamTable+0
+
+  +;
     
-    xy16()
+  xy16()
     ldx oam.reserved
     jsr oam.clear
     jsr oam.packHi
