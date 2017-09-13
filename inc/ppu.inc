@@ -31,23 +31,6 @@ function vBlank {
     rti
 }
 
-
-function msgCopy {
-  axy16()
-    ldy #$0000
-
-  loop:; lda (msg),y
-    and #$00ff
-    cmp #$00ff
-    beq done
-    sta PPUDATA
-    iny
-    bra loop
-
-  done:
-    rts
-}
-
 function sync {
     php
   a8()
@@ -77,20 +60,6 @@ macro copyPalette(palette) {
     ldx.w #{palette}
     ldy.w #{palette}.size
     jsr ppu.copy
-}
-
-macro printMessage(message, place) {
-    databank({message})
-
-    if _REGS_.aSize != 16 {
-        a16()
-    }
-
-    lda.w #$6000|{place}
-    sta PPUADDR
-    lda.w #{message}
-    sta.b ppu.msg
-    jsr ppu.msgCopy
 }
 
 }
