@@ -1,5 +1,5 @@
-graphics_bmp = $(wildcard gfx/*.bmp)
-graphics_chr = $(graphics_bmp:.bmp=.chr)
+graphics_png = $(wildcard gfx/*.png)
+graphics_chr = $(graphics_png:.png=.chr)
 graphics_rle = $(graphics_chr:.chr=.rle)
 
 all: $(graphics_rle)
@@ -10,8 +10,8 @@ all: $(graphics_rle)
 gfx/%.rle: gfx/%.chr
 	tools/rle.py $< $@
 
-gfx/%.chr: gfx/%.bmp
-	tools/snes-tile-tool.py -i $< -o $(subst .bmp,,$<)
+gfx/%.chr: gfx/%.png
+	tools/snes-tile-tool.py -i $< -o $(subst .png,,$<)
 
 clean:
 	rm -f gfx/*.nam gfx/*.pal gfx/*.rle gfx/*.chr

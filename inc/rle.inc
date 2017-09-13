@@ -112,7 +112,8 @@ function dma {
     php
 
   axy16()
-    lda #$4000
+    // weird spot for oam example
+    lda #$4220
     sta PPUADDR
 
     lda #DMAMODE_PPUDATA

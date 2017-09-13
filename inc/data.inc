@@ -11,9 +11,9 @@ inline palette(name, file) {
 }
 
 namespace palettes {
-  palette(main, gfx)
+  palette(main, sektor)
 }
 
 
 font:
-  insert "../gfx/gfx.rle"
+  insert "../gfx/sektor.rle"

@@ -32,6 +32,6 @@
 000081f8 init.spriteLoop
 0000820c init.spriteLoop2
 0000826c Main
-000082c2 Main.forever
-000082fd rtiPointer
+000082cf Main.forever
+0000830a rtiPointer
 0000ffc0 header.romname

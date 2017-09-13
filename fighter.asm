@@ -13,13 +13,26 @@ function Main {
     rle.copy(font)
 
   a16()
-    lda.w #$05
+    // 32x32 sprites
+    lda.w #%10100000 | ($4000 >> 13)
+    sta OBSEL
+
+    // random number, don't feel like dealing with this
+    lda.w #$02ff
     sta oam.reserved
-    lda.w #$80
+
+    // $50 X and Y
+    lda.w #$50
     sta.w oam.oamTable+0
     sta.w oam.oamTable+1
-    lda.w #'A'
+
+    // starting from sprite $32
+    lda.w #$32
     sta.w oam.oamTable+2
+
+    // using 8th palette
+    lda.w #8<<1
+    sta.w oam.oamTable+3
 
   a8()
 
