@@ -1,6 +1,5 @@
-00018000 message
-00018010 palettes.main
-00018110 font
+00018000 palettes.main
+00018100 tilesets.sektor
 00000000 ppu.msg
 00008000 ppu.copy
 0000801d ppu.vBlank

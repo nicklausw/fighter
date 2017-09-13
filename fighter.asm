@@ -10,7 +10,7 @@ include "inc/init.inc"
 code()
 function Main {
     ppu.copyPalette(palettes.main)
-    rle.copy(font)
+    rle.copy(tilesets.sektor)
 
   a16()
     // 32x32 sprites

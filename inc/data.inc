@@ -1,19 +1,20 @@
-data()
-
-// data
-message:; db "This...is bass.", $FF
-
 inline palette(name, file) {
+    data()
     function {name} {
         insert "../gfx/{file}.pal"
         constant size = pc() - {name}
     }
 }
 
+inline tileset(name, file) {
+    data()
+    {name}:; insert "../gfx/{file}.rle"
+}
+
 namespace palettes {
   palette(main, sektor)
 }
 
-
-font:
-  insert "../gfx/sektor.rle"
+namespace tilesets {
+  tileset(sektor, sektor)
+}
