@@ -17,8 +17,8 @@ code()
 function copyRAM {
     php
 
-    setxy16()
-    seta8()
+  xy16()
+  a8()
     ldy #$0000
     sty.b rle.index
     tya  // clear low and high bytes of accumulator
@@ -41,11 +41,11 @@ function copyRAM {
 
     // no higher byte!
     pha
-    seta16()
+  a16()
     tya
     and #$00ff
     tay
-    seta8()
+  a8()
     pla
 
     ldx.b rle.index
@@ -111,20 +111,20 @@ function copyRAM {
 function dma {
     php
 
-    setaxy16()
+  axy16()
     stz PPUADDR
 
     lda #DMAMODE_PPUDATA
     ldx.w #rle.dat
     ldy #8192
 
-    setaxy16()
+  axy16()
 
     sta DMAMODE
     stx DMAADDR
     sty DMALEN
 
-    seta8()
+  a8()
     lda.b #bankbyte(rle.dat)
     sta DMAADDRBANK
     lda #%00000001
@@ -132,6 +132,20 @@ function dma {
 
     plp
     rts
+}
+
+
+macro copy(data) {
+    databank({data})
+
+    if _REGS_.iSize != 16 {
+        xy16()
+    }
+
+    ldx.w #{data}
+    stx.b rle.src
+    jsr rle.copyRAM
+    jsr rle.dma
 }
 
 }

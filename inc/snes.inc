@@ -517,16 +517,23 @@ constant JOY4H  = JOY2B1CUR+1
 // For best results, use .smart which lets the assembler follow
 // SEP/REP and generate appropriately wide immediate values.
 
+namespace _REGS_ {
+  variable aSize = 8
+  variable iSize = 8
+}
+
 //;
 // Sets the X and Y registers to use 8-bit values.
 // The upper bits are treated as cleared.
-macro setxy8() {
+macro xy8() {
+  _REGS_.iSize = 8
   sep #$10
 }
 
 //;
 // Sets the X and Y registers to use 16-bit values.
-macro setxy16() {
+macro xy16() {
+  _REGS_.iSize = 16
   rep #$10
 }
 
@@ -535,26 +542,32 @@ macro setxy16() {
 // instructions (such as STZ and ROR) to use 8-bit data.
 // The upper 8 bits of A can be swapped in and out with the
 // XBA instruction.
-macro seta8() {
+macro a8() {
+  _REGS_.aSize = 8
   sep #$20
 }
 
 //;
 // Sets the accumulator and memory-only data manipulation
 // instructions to use 16-bit data.
-macro seta16() {
+macro a16() {
+  _REGS_.aSize = 16
   rep #$20
 }
 
 //;
 // Equivalent to seta8 and setxy8.
-macro setaxy8() {
+macro axy8() {
+  _REGS_.aSize = 8
+  _REGS_.iSize = 8
   sep #$30
 }
 
 //;
 // Equivalent to seta16 and setxy16.
-macro setaxy16() {
+macro axy16() {
+  _REGS_.aSize = 16
+  _REGS_.iSize = 16
   rep #$30
 }
 

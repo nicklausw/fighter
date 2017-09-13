@@ -98,13 +98,15 @@ macro res(n) {
 }
 
 macro databank(n) {
-    seta8()
+    if _REGS_.aSize != 8 {
+        a8()
+    }
     lda.b #bankbyte({n})
     pha; plb
 }
 
 macro data.upBank() {
-    pc() = (pc & $ffff) + $10000 + $8000
+    pc() = (pc & $ffff) + $18000
 }
 
 // alias
