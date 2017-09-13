@@ -14,7 +14,7 @@ function Main {
 
   a16()
     // 32x32 sprites
-    lda.w #%10100000 | ($4000 >> 13)
+    lda.w #%10100000
     sta OBSEL
 
     // random number, don't feel like dealing with this
@@ -26,13 +26,9 @@ function Main {
     sta.w oam.oamTable+0
     sta.w oam.oamTable+1
 
-    // starting from sprite $32
-    lda.w #$32
+    // starting from sprite $30
+    lda.w #$30
     sta.w oam.oamTable+2
-
-    // using 8th palette
-    lda.w #8<<1
-    sta.w oam.oamTable+3
 
   a8()
 

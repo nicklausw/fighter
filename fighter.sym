@@ -27,7 +27,7 @@
 000081cf init.paletteLoop
 000081e1 init.spriteLoop
 000081f5 init.spriteLoop2
-00008255 Main
-000082b8 Main.forever
-000082f3 rtiPointer
+00008252 Main
+000082af Main.forever
+000082ea rtiPointer
 0000ffc0 header.romname

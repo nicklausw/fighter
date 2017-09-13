@@ -161,9 +161,7 @@ function init {
     lda #$01
     sta BGMODE  // mode 0
     stz BGCHRADDR // bg planes at $0000
-
-    lda.b #$4000 >> 13
-    sta OBSEL // sprite chr at $4000
+    stz OBSEL // sprite chr at $0000
 
     lda #$60
     sta NTADDR+0 // plane 0 nametable at $6000
