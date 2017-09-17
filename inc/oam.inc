@@ -37,12 +37,12 @@ function packHi {
     asl; asl
     ora oamHi+1,y
     sta oamHi,x
-    rep #$21  // seta16 + clc for following addition
+  a16()
 
     // move to the next set of 4 OAM entries
     inx
     tya
-    adc #16
+    clc; adc #16
     tay
   
     // done yet?

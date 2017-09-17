@@ -14,12 +14,12 @@ function Main {
 
   a16()
     // 32x32 sprites
-    lda.w #%10100000
+    lda.w #OBSIZE_32_64
     sta OBSEL
 
     // random number, don't feel like dealing with this
-    lda.w #$02ff
-    sta oam.reserved
+    //lda.w #$02ff
+    //sta oam.reserved
 
     // $50 X and Y
     lda.w #$50
@@ -64,11 +64,27 @@ function Main {
     sec; sbc #$03
     sta oam.oamTable+0
 
+  +;lda JOY1CUR+1
+    and.b #KEY_UP >> 8
+    beq +
+
+    lda oam.oamTable+1
+    sec; sbc #$03
+    sta oam.oamTable+1
+
+    +;lda JOY1CUR+1
+    and.b #KEY_DOWN >> 8
+    beq +
+
+    lda oam.oamTable+1
+    clc; adc #$03
+    sta oam.oamTable+1
+
   +;
     
   xy16()
     ldx oam.reserved
-    jsr oam.clear
+    //jsr oam.clear
     jsr oam.packHi
     jsr ppu.sync
     jsr oam.copy

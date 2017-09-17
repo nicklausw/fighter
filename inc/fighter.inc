@@ -7,7 +7,7 @@ macro seek(offset) {
     base {offset}
 }
 
-seek($48000) // 256 kb
+seek($48000) // 128 kb
 
 namespace space {
     variable wRAM = $0200
