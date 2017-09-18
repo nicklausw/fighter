@@ -8,15 +8,15 @@ code()
 function copy {
     php
   axy16()
-    sta DMAMODE
+    sta.w DMAMODE
     stx DMAADDR
     sty DMALEN
   a8()
     phb
     pla
-    sta DMAADDRBANK
+    sta.w DMAADDRBANK
     lda #%00000001
-    sta COPYSTART
+    sta.w COPYSTART
     plp
     rts
 }
@@ -49,7 +49,7 @@ macro copyPalette(palette) {
     }
 
     lda #$80
-    sta CGADDR
+    sta.w CGADDR
     databank({palette})
 
     if _REGS_.aSize != 16 || _REGS_.iSize != 16 {

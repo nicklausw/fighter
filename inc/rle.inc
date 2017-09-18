@@ -113,7 +113,7 @@ function dma {
 
   axy16()
     lda #$0300
-    sta PPUADDR
+    sta.w PPUADDR
 
     lda #DMAMODE_PPUDATA
     ldx.w #rle.dat
@@ -121,15 +121,15 @@ function dma {
 
   axy16()
 
-    sta DMAMODE
+    sta.w DMAMODE
     stx DMAADDR
     sty DMALEN
 
   a8()
     lda.b #bankbyte(rle.dat)
-    sta DMAADDRBANK
+    sta.w DMAADDRBANK
     lda #%00000001
-    sta COPYSTART
+    sta.w COPYSTART
 
     plp
     rts
