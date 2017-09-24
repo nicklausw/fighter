@@ -12,7 +12,7 @@ dPage()
 code()
 function clear {
     axy16()
-  -;lda.w #(225 << 8) | -128
+  -;lda #>(225 << 8) | -128
     sta oamTable,x
     lda #$0100  // bit 8: offscreen
     sta oamHi,x
@@ -53,9 +53,9 @@ function packHi {
 
 function copy {
   axy16()
-    lda.w #DMAMODE_OAMDATA
-    ldx.w #oamTable
-    ldy.w #544
+    lda #>DMAMODE_OAMDATA
+    ldx #oamTable
+    ldy #544
     jmp ppu.copy
 }
 

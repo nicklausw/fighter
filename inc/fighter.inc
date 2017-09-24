@@ -101,7 +101,7 @@ macro databank(n) {
     if _REGS_.aSize != 8 {
         a8()
     }
-    lda.b #bankbyte({n})
+    lda #<bankbyte({n})
     pha; plb
 }
 

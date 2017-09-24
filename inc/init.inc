@@ -141,7 +141,7 @@ function init {
     ldx #zero
     stx DMAADDR // source address
 
-    lda.b #bankbyte(zero)
+    lda #<bankbyte(zero)
     sta.w DMAADDRBANK // source bank
 
     ldx #$0000

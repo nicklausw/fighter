@@ -20,7 +20,7 @@ function copyRAM {
   xy16()
   a8()
     ldy #$0000
-    sty.b rle.index
+    sty <rle.index
     tya  // clear low and high bytes of accumulator
 
   loop:
@@ -48,7 +48,7 @@ function copyRAM {
   a8()
     pla
 
-    ldx.b rle.index
+    ldx <rle.index
     // And here, Y is the length of the run, A is the byte to write,
     // and X is the index into the decompression buffer.
   rle_inter:
@@ -57,7 +57,7 @@ function copyRAM {
     dey
     bne rle_inter
 
-    stx.b rle.index
+    stx <rle.index
     ply  // Restore source index
     bra loop
 
@@ -68,13 +68,13 @@ function copyRAM {
     iny // get number of bytes to copy
     lda (rle.src),y
     iny // don't copy number of bytes to copy!
-    sty.b rle.count
+    sty <rle.count
 
     ldx #$0000 // 0 higher bit
     tax // x has bytes remaining
-    stx.b rle.remain
+    stx <rle.remain
 
-    ldx.b rle.index
+    ldx <rle.index
 
   fe_loop:
     lda (rle.src),y
@@ -84,21 +84,21 @@ function copyRAM {
 
     // this is a weird way of saying "one less remaining"
     phx
-    ldx.b rle.remain
+    ldx <rle.remain
     dex
-    stx.b rle.remain
+    stx <rle.remain
     plx
 
     // increase the index
     inx
 
     // now check how much remaining
-    lda.b rle.remain
+    lda <rle.remain
     cmp #$00
     bne fe_loop
 
     // put the index back
-    stx.b rle.index
+    stx <rle.index
 
     bra loop
 
@@ -113,23 +113,23 @@ function dma {
 
   axy16()
     lda #$0300
-    sta.w PPUADDR
+    sta >PPUADDR
 
     lda #DMAMODE_PPUDATA
-    ldx.w #rle.dat
+    ldx #rle.dat
     ldy #8192
 
   axy16()
 
-    sta.w DMAMODE
+    sta >DMAMODE
     stx DMAADDR
     sty DMALEN
 
   a8()
-    lda.b #bankbyte(rle.dat)
-    sta.w DMAADDRBANK
+    lda #<bankbyte(rle.dat)
+    sta >DMAADDRBANK
     lda #%00000001
-    sta.w COPYSTART
+    sta >COPYSTART
 
     plp
     rts
@@ -143,8 +143,8 @@ macro copy(data) {
         xy16()
     }
 
-    ldx.w #{data}
-    stx.b rle.src
+    ldx #>{data}
+    stx <rle.src
     jsr rle.copyRAM
     jsr rle.dma
 }
