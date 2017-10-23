@@ -78,7 +78,7 @@ function init {
 
     // clear the vram via dma
     lda #$80
-    sta.w PPUCTRL // access vram in words
+    sta >PPUCTRL // access vram in words
 
     ldx #$1809
     stx DMAMODE // fixed source dma
@@ -89,14 +89,14 @@ function init {
     ldx #zero
     stx DMAADDR // source address at $xx:0000
 
-    lda #bankbyte(zero)
-    sta.w DMAADDRBANK // source bank, probably $80
+    lda #<bankbyte(zero)
+    sta >DMAADDRBANK // source bank, probably $80
 
     ldx #$0000
     stx DMALEN // transfer $ffff+1=65536 bytes
 
     lda #$01
-    sta.w COPYSTART // initiate vram clearing
+    sta >COPYSTART // initiate vram clearing
 
 
     // clear the palette
@@ -112,11 +112,11 @@ function init {
     // clear the sprites
     stz OAMADDR
     ldx #$0080
-    lda #240
+    lda #<240
 
   spriteLoop:
-    sta.w OAMDATA // x = 240
-    sta.w OAMDATA // y = 240
+    sta >OAMDATA // x = 240
+    sta >OAMDATA // y = 240
     stz OAMDATA // tile = 0
     stz OAMDATA // priority = 0, no flips
     dex
@@ -142,34 +142,34 @@ function init {
     stx DMAADDR // source address
 
     lda #<bankbyte(zero)
-    sta.w DMAADDRBANK // source bank
+    sta >DMAADDRBANK // source bank
 
     ldx #$0000
     stx DMALEN // transfer $ffff+1=65536 bytes
 
     lda #$01
-    sta.w COPYSTART // start transfer
+    sta >COPYSTART // start transfer
 
     lda #$01
-    sta.w COPYSTART // again to get all 128 kb
+    sta >COPYSTART // again to get all 128 kb
 
 
     // the last of basic set-up.
     lda #$8f // blank screen
-    sta.w PPUBRIGHT
+    sta >PPUBRIGHT
 
     lda #$01
-    sta.w BGMODE  // mode 0
+    sta >BGMODE  // mode 0
     stz BGCHRADDR // bg planes at $0000
     stz OBSEL // sprite chr at $0000
 
     lda #$60
-    sta.w NTADDR+0 // plane 0 nametable at $6000
-    sta.w NTADDR+1 // plane 1 nametable also at $6000
+    sta >NTADDR+0 // plane 0 nametable at $6000
+    sta >NTADDR+1 // plane 1 nametable also at $6000
 
     lda #$ff
-    sta.w BGSCROLLY+0  // the ppu displays lines 1-224, so set scroll to
-    sta.w BGSCROLLY+0  // $ff so that the first displayed line is line 0
+    sta >BGSCROLLY+0  // the ppu displays lines 1-224, so set scroll to
+    sta >BGSCROLLY+0  // $ff so that the first displayed line is line 0
 
     jmp Main
 }
