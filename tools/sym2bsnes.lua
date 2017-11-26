@@ -15,5 +15,5 @@ while true do
   OutFile:write(ValBank .. ":" .. ValRest .. " " .. Var .. "\n")
 end
 
-InFile.close()
-OutFile.close()
+InFile:close()
+OutFile:close()
