@@ -1,8 +1,5 @@
 namespace ppu {
 
-dPage()
-  msg:; res(2)
-
 code()
 
 function copy {

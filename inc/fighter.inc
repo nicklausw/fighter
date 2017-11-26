@@ -113,3 +113,16 @@ macro data.upBank() {
 macro end() {
     closeBlock()
 }
+
+inline palette(name, file) {
+    data()
+    function {name} {
+        insert "../gfx/{file}"
+        constant size = pc() - {name}
+    }
+}
+
+inline tileset(name, file) {
+    data()
+    {name}:; insert "../gfx/{file}"
+}
