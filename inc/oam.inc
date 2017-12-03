@@ -13,12 +13,11 @@ code()
 function clear {
     axy16()
   -;lda #>(225 << 8) | -128
-    sta oamTable,x
+    sta >oamTable,x
     lda #$0100  // bit 8: offscreen
-    sta oamHi,x
-    inx; inx
-    inx; inx
-    cpx #512  // 128 sprites times 4 bytes per sprite
+    sta >oamHi,x
+    inx; inx; inx; inx
+    cpx #>512  // 128 sprites times 4 bytes per sprite
     bcc -
     rts
 }
@@ -29,24 +28,24 @@ function packHi {
     txy
   -;// pack four sprites' size+xhi bits from OAMHI
   a8()
-    lda oamHi+13,y
+    lda >oamHi+13,y
     asl; asl
-    ora oamHi+9,y
+    ora >oamHi+9,y
     asl; asl
-    ora oamHi+5,y
+    ora >oamHi+5,y
     asl; asl
-    ora oamHi+1,y
-    sta oamHi,x
+    ora >oamHi+1,y
+    sta >oamHi,x
   a16()
 
     // move to the next set of 4 OAM entries
     inx
     tya
-    clc; adc #16
+    clc; adc #>16
     tay
   
     // done yet?
-    cpx #32  // 128 sprites divided by 4 sprites per byte
+    cpx #>32  // 128 sprites divided by 4 sprites per byte
     bcc -
     rts
 }
@@ -54,9 +53,9 @@ function packHi {
 function copy {
   axy16()
     lda #>DMAMODE_OAMDATA
-    ldx #oamTable
-    ldy #544
-    jmp ppu.copy
+    ldx #>oamTable
+    ldy #> 512 + 32
+    jmp >ppu.copy
 }
 
 }

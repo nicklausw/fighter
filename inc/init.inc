@@ -2,7 +2,7 @@ code()
 function init {
     sei // no interrupts
     clc; xce // no emulate
-    jmp + // for banking and zero
+    jmp >+ // for banking and zero
 
   zero:; db 00
 
@@ -81,71 +81,71 @@ function init {
     sta >PPUCTRL // access vram in words
 
     ldx #$1809
-    stx DMAMODE // fixed source dma
+    stx >DMAMODE // fixed source dma
 
     ldx #$0000
-    stx PPUADDR // vram port address at $0000
+    stx >PPUADDR // vram port address at $0000
 
-    ldx #zero
-    stx DMAADDR // source address at $xx:0000
+    ldx #>zero
+    stx >DMAADDR // source address at $xx:0000
 
     lda #<bankbyte(zero)
     sta >DMAADDRBANK // source bank, probably $80
 
     ldx #$0000
-    stx DMALEN // transfer $ffff+1=65536 bytes
+    stx >DMALEN // transfer $ffff+1=65536 bytes
 
     lda #$01
     sta >COPYSTART // initiate vram clearing
 
 
     // clear the palette
-    stz CGADDR
+    stz >CGADDR
     ldx #$0100
   paletteLoop:
-    stz CGDATA
-    stz CGDATA
+    stz >CGDATA
+    stz >CGDATA
     dex
     bne paletteLoop
 
 
     // clear the sprites
-    stz OAMADDR
+    stz >OAMADDR
     ldx #$0080
     lda #<240
 
   spriteLoop:
     sta >OAMDATA // x = 240
     sta >OAMDATA // y = 240
-    stz OAMDATA // tile = 0
-    stz OAMDATA // priority = 0, no flips
+    stz >OAMDATA // tile = 0
+    stz >OAMDATA // priority = 0, no flips
     dex
     bne spriteLoop
 
     ldx #$0020
 
   spriteLoop2:
-    stz OAMDATA // size bit = 0
+    stz >OAMDATA // size bit = 0
     dex
     bne spriteLoop2
 
 
     // clear RAM
-    stz WMADDL // wram address to $000000
-    stz WMADDM
-    stz WMADDH
+    stz >WMADDL // wram address to $000000
+    stz >WMADDM
+    stz >WMADDH
 
     ldx #$8008
-    stx DMAMODE // fixed source dma
+    stx >DMAMODE // fixed source dma
 
-    ldx #zero
-    stx DMAADDR // source address
+    ldx #>zero
+    stx >DMAADDR // source address
 
     lda #<bankbyte(zero)
     sta >DMAADDRBANK // source bank
 
     ldx #$0000
-    stx DMALEN // transfer $ffff+1=65536 bytes
+    stx >DMALEN // transfer $ffff+1=65536 bytes
 
     lda #$01
     sta >COPYSTART // start transfer
@@ -160,8 +160,8 @@ function init {
 
     lda #$01
     sta >BGMODE  // mode 0
-    stz BGCHRADDR // bg planes at $0000
-    stz OBSEL // sprite chr at $0000
+    stz >BGCHRADDR // bg planes at $0000
+    stz >OBSEL // sprite chr at $0000
 
     lda #$60
     sta >NTADDR+0 // plane 0 nametable at $6000
@@ -171,5 +171,5 @@ function init {
     sta >BGSCROLLY+0  // the ppu displays lines 1-224, so set scroll to
     sta >BGSCROLLY+0  // $ff so that the first displayed line is line 0
 
-    jmp Main
+    jmp >Main
 }

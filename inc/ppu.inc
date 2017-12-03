@@ -6,8 +6,8 @@ function copy {
     php
   axy16()
     sta >DMAMODE
-    stx DMAADDR
-    sty DMALEN
+    stx >DMAADDR
+    sty >DMALEN
   a8()
     phb
     pla
@@ -31,9 +31,9 @@ function vBlank {
 function sync {
     php
   a8()
-  -;bit VBLSTATUS  // wait for leaving previous vblank
+  -;bit >VBLSTATUS  // wait for leaving previous vblank
     bmi -
-  -;bit VBLSTATUS  // wait for start of this vblank
+  -;bit >VBLSTATUS  // wait for start of this vblank
     bpl -
     plp
     rts
@@ -54,9 +54,10 @@ macro copyPalette(palette) {
     }
 
     lda #>DMAMODE_CGDATA
-    ldx #{palette}
-    ldy #{palette}.size
-    jsr ppu.copy
+    ldx #>{palette}
+    ldy #>{palette}.size
+    jsr >ppu.copy
+    databank($00)
 }
 
 }

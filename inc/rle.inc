@@ -24,14 +24,14 @@ function copyRAM {
     tya  // clear low and high bytes of accumulator
 
   loop:
-    lda (rle.src),y
+    lda (<rle.src),y
     cmp #$ff  // RLE data is terminated by a run length of $FF
     beq done  // But what does a run length of 0 do?
     cmp #$fe
     beq copy_fe
     tax
     iny
-    lda (rle.src),y
+    lda (<rle.src),y
     iny
     phy
 
@@ -52,7 +52,7 @@ function copyRAM {
     // And here, Y is the length of the run, A is the byte to write,
     // and X is the index into the decompression buffer.
   rle_inter:
-    sta rle.dat,x
+    sta ^rle.dat,x
     inx
     dey
     bne rle_inter
@@ -66,7 +66,7 @@ function copyRAM {
     // this code gets a little crazy, so bear with me.
 
     iny // get number of bytes to copy
-    lda (rle.src),y
+    lda (<rle.src),y
     iny // don't copy number of bytes to copy!
     sty <rle.count
 
@@ -77,10 +77,10 @@ function copyRAM {
     ldx <rle.index
 
   fe_loop:
-    lda (rle.src),y
+    lda (<rle.src),y
     iny // for next byte
 
-    sta rle.dat,x
+    sta ^rle.dat,x
 
     // this is a weird way of saying "one less remaining"
     phx
@@ -104,9 +104,10 @@ function copyRAM {
 
   done:
     plp
-    rts
+    // rts
 }
 
+// fall through
 
 function dma {
     php
@@ -115,15 +116,15 @@ function dma {
     lda #$0300
     sta >PPUADDR
 
-    lda #DMAMODE_PPUDATA
-    ldx #rle.dat
-    ldy #8192
+    lda #>DMAMODE_PPUDATA
+    ldx #>rle.dat
+    ldy #>8192
 
   axy16()
 
     sta >DMAMODE
-    stx DMAADDR
-    sty DMALEN
+    stx >DMAADDR
+    sty >DMALEN
 
   a8()
     lda #<bankbyte(rle.dat)
@@ -145,8 +146,7 @@ macro copy(data) {
 
     ldx #>{data}
     stx <rle.src
-    jsr rle.copyRAM
-    jsr rle.dma
+    jsr >rle.copyRAM
 }
 
 }

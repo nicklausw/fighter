@@ -84,11 +84,11 @@ function Main {
   +;
     
   xy16()
-    ldx oam.reserved
-    //jsr oam.clear
-    jsr oam.packHi
-    jsr ppu.sync
-    jsr oam.copy
+    ldx <oam.reserved
+    //jsr >oam.clear
+    jsr >oam.packHi
+    jsr >ppu.sync
+    jsr >oam.copy
 
     bra forever
 }

@@ -27,7 +27,7 @@
 //
 
 if !{defined SNES_H} {
-  constant SNES_H = 1
+  define SNES_H
   architecture wdc65816
 
 // S-PPU configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

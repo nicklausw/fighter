@@ -4,6 +4,8 @@ It's currently a useless demo, but soon I
 hope for this to become a playable SNES
 fighting game.
 
+[Uses my fork of bass-untech.](https://github.com/nicklausw/bass-untech)
+
 Credit goes to UnDisbeliever for some of
 the framework going on inside the code
 (bass magic and all), and to tepples for
