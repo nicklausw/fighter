@@ -106,7 +106,7 @@ macro databank(n) {
 }
 
 macro data.upBank() {
-    pc() = (pc & $ffff) + $18000
+    pc() = (pc() & $ffff) + $18000
 }
 
 // alias
@@ -116,7 +116,8 @@ macro end() {
 
 inline palette(name, file) {
     data()
-    function {name} {
+    {name}:
+    namespace {name} {
         insert "../gfx/{file}"
         constant size = pc() - {name}
     }
