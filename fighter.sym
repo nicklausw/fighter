@@ -219,9 +219,9 @@
 00:81c1 init.paletteLoop ANY 1
 00:81d2 init.spriteLoop ANY 1
 00:81e4 init.spriteLoop2 ANY 1
-00:8239 Main ANY 1
-00:828e Main.forever ANY 1
-00:82df rtiPointer ANY 1
+00:8237 Main ANY 1
+00:828c Main.forever ANY 1
+00:82dd rtiPointer ANY 1
 00:ffc0 header.romname ANY 1
 01:8000 palettes.main ANY 1
 01:8100 tilesets.sektor ANY 1
@@ -280,7 +280,7 @@
 00:8229 "plane 1 nametable also at $6000"
 00:822e "the ppu displays lines 1-224, so set scroll to"
 00:8231 "$ff so that the first displayed line is line 0"
-00:827e "enable sprites and plane 0"
-00:828d "enable interrupts"
+00:827c "enable sprites and plane 0"
+00:828b "enable interrupts"
 
 [COMMAND]
