@@ -1,5 +1,5 @@
 include "inc/snes.inc"
-include "inc/fighter.inc"
+include "inc/memory.inc"
 
 include "inc/data.inc"
 include "inc/ppu.inc"

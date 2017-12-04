@@ -1,7 +1,8 @@
 namespace palettes {
-  palette(main, sektor.pal)
+  asset(main, sektor.pal)
 }
 
+
 namespace tilesets {
-  tileset(sektor, sektor.rle)
+  asset(sektor, sektor.rle)
 }
