@@ -120,6 +120,7 @@ inline _tempInsert(file) {
 inline dataInsert(name, file) {
     _tempInsert({file})
     if {_size} > $8000 {
+        print "file name: {file}\n"
         error "file is larger than a bank in size"
     }
     if pc() & $ffff < $8000 {
