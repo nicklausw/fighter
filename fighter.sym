@@ -228,6 +228,7 @@
 7e:2000 rle.dat ANY 1
 
 [COMMENT]
+00:801b "data bank 0"
 00:801c "data bank 0"
 00:8025 "wait for leaving previous vblank"
 00:802a "wait for start of this vblank"

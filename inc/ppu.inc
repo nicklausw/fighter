@@ -21,8 +21,7 @@ function copy {
 
 function vBlank {
     phb
-    phk
-    plb // data bank 0
+    phk; plb // data bank 0
     bit >NMISTATUS
     plb
     rti

@@ -63,7 +63,7 @@ function init {
 
     stz $00
     lda #$ff; sta $01
-    
+
     ldx #$02
   -;stz $00,x
     inx
@@ -73,30 +73,17 @@ function init {
     lda #$0000
     tcd // direct page = "zeropage"
   a8()
-    
+
   xy16()
 
     // clear the vram via dma
-    lda #$80
-    sta >PPUCTRL // access vram in words
-
-    ldx #$1809
-    stx >DMAMODE // fixed source dma
-
-    ldx #$0000
-    stx >PPUADDR // vram port address at $0000
-
-    ldx #>zero
-    stx >DMAADDR // source address at $xx:0000
-
-    lda #<bankbyte(zero)
-    sta >DMAADDRBANK // source bank, probably $80
-
-    ldx #$0000
-    stx >DMALEN // transfer $ffff+1=65536 bytes
-
-    lda #$01
-    sta >COPYSTART // initiate vram clearing
+    lda #$80; sta >PPUCTRL // access vram in words
+    ldx #$1809; stx >DMAMODE // fixed source dma
+    ldx #$0000; stx >PPUADDR // vram port address at $0000
+    ldx #>zero; stx >DMAADDR // source address at $xx:0000
+    lda #<bankbyte(zero); sta >DMAADDRBANK // source bank, probably $80
+    ldx #$0000; stx >DMALEN // transfer $ffff+1=65536 bytes
+    lda #$01; sta >COPYSTART // initiate vram clearing
 
 
     // clear the palette
@@ -131,26 +118,12 @@ function init {
 
 
     // clear RAM
-    stz >WMADDL // wram address to $000000
-    stz >WMADDM
-    stz >WMADDH
-
-    ldx #$8008
-    stx >DMAMODE // fixed source dma
-
-    ldx #>zero
-    stx >DMAADDR // source address
-
-    lda #<bankbyte(zero)
-    sta >DMAADDRBANK // source bank
-
-    ldx #$0000
-    stx >DMALEN // transfer $ffff+1=65536 bytes
-
-    lda #$01
-    sta >COPYSTART // start transfer
-
-    lda #$01
+    stz >WMADDL; stz >WMADDM; stz >WMADDH // wram address to $000000
+    ldx #$8008; stx >DMAMODE // fixed source dma
+    ldx #>zero; stx >DMAADDR // source address
+    lda #<bankbyte(zero); sta >DMAADDRBANK // source bank
+    ldx #$0000; stx >DMALEN // transfer $ffff+1=64kb
+    lda #$01; sta >COPYSTART // start transfer
     sta >COPYSTART // again to get all 128 kb
 
 
