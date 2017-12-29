@@ -13,9 +13,7 @@ function Main {
     rle.copy(tilesets.sektor)
 
   a16()
-    // 32x32 sprites
-    lda #>OBSIZE_32_64
-    sta >OBSEL
+    lda #>OBSIZE_32_64; sta >OBSEL // 32x32 sprites
 
     // random number, don't feel like dealing with this
     //lda #>$02ff
@@ -33,11 +31,9 @@ function Main {
 
   a8()
 
-    lda #%00010000  // enable sprites and plane 0
-    sta >BLENDMAIN
+    lda #$10; sta >BLENDMAIN // enable sprites and plane 0
 
-    lda #$0f
-    sta >PPUBRIGHT
+    lda #$0f; sta >PPUBRIGHT
 
     // we want nmi
     lda #<VBLANK_NMI|AUTOREAD

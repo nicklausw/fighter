@@ -219,9 +219,9 @@
 00:81c1 init.paletteLoop ANY 1
 00:81d2 init.spriteLoop ANY 1
 00:81e4 init.spriteLoop2 ANY 1
-00:8237 Main ANY 1
-00:828c Main.forever ANY 1
-00:82dd rtiPointer ANY 1
+00:8235 Main ANY 1
+00:828a Main.forever ANY 1
+00:82db rtiPointer ANY 1
 00:ffc0 header.romname ANY 1
 01:8000 palettes.main ANY 1
 01:8100 tilesets.sektor ANY 1
@@ -251,15 +251,25 @@
 00:8113 "no decimal"
 00:8114 "data bank = pc bank"
 00:8115 "data bank = pc bank"
+00:8118 "stack"
 00:811b "stack"
+00:811c "direct page at vRAM"
 00:811f "direct page at vRAM"
+00:818c "direct page = "zeropage""
 00:818f "direct page = "zeropage""
+00:8194 "access vram in words"
 00:8196 "access vram in words"
+00:8199 "fixed source dma"
 00:819c "fixed source dma"
+00:819f "vram port address at $0000"
 00:81a2 "vram port address at $0000"
+00:81a5 "source address at $xx:0000"
 00:81a8 "source address at $xx:0000"
+00:81ab "source bank, probably $80"
 00:81ad "source bank, probably $80"
+00:81b0 "transfer $ffff+1=65536 bytes"
 00:81b3 "transfer $ffff+1=65536 bytes"
+00:81b6 "initiate vram clearing"
 00:81b8 "initiate vram clearing"
 00:81d2 "x = 240"
 00:81d5 "y = 240"
@@ -267,21 +277,31 @@
 00:81db "priority = 0, no flips"
 00:81e4 "size bit = 0"
 00:81ea "wram address to $000000"
+00:81ed "wram address to $000000"
+00:81f0 "wram address to $000000"
+00:81f3 "fixed source dma"
 00:81f6 "fixed source dma"
+00:81f9 "source address"
 00:81fc "source address"
+00:81ff "source bank"
 00:8201 "source bank"
-00:8207 "transfer $ffff+1=65536 bytes"
+00:8204 "transfer $ffff+1=64kb"
+00:8207 "transfer $ffff+1=64kb"
+00:820a "start transfer"
 00:820c "start transfer"
-00:8211 "again to get all 128 kb"
-00:8214 "blank screen"
-00:821b "mode 0"
-00:821e "bg planes at $0000"
-00:8221 "sprite chr at $0000"
-00:8226 "plane 0 nametable at $6000"
-00:8229 "plane 1 nametable also at $6000"
-00:822e "the ppu displays lines 1-224, so set scroll to"
-00:8231 "$ff so that the first displayed line is line 0"
+00:820f "again to get all 128 kb"
+00:8212 "blank screen"
+00:8219 "mode 0"
+00:821c "bg planes at $0000"
+00:821f "sprite chr at $0000"
+00:8224 "plane 0 nametable at $6000"
+00:8227 "plane 1 nametable also at $6000"
+00:822c "the ppu displays lines 1-224, so set scroll to"
+00:822f "$ff so that the first displayed line is line 0"
+00:8260 "32x32 sprites"
+00:8263 "32x32 sprites"
+00:827a "enable sprites and plane 0"
 00:827c "enable sprites and plane 0"
-00:828b "enable interrupts"
+00:8289 "enable interrupts"
 
 [COMMAND]

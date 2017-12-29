@@ -10,13 +10,8 @@ function init {
     phk; plb // data bank = pc bank
 
   axy16()
-
-    ldx #$1fff
-    txs // stack
-
-    lda #$2100
-    tad // direct page at vRAM
-
+    ldx #$1fff; txs // stack
+    lda #$2100; tad // direct page at vRAM
   axy8()
 
     lda #$30; sta $30
@@ -57,8 +52,7 @@ function init {
     cpx #$30; bne -
 
   a16()
-    lda #$4200
-    tcd
+    lda #$4200; tcd
   a8()
 
     stz $00
@@ -70,10 +64,8 @@ function init {
     cpx #$0e; bne -
 
   a16()
-    lda #$0000
-    tcd // direct page = "zeropage"
+    lda #$0000; tcd // direct page = "zeropage"
   a8()
-
   xy16()
 
     // clear the vram via dma

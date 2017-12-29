@@ -138,3 +138,22 @@ inline dataInsert(name, file) {
 inline asset(name, file) {
     data(); dataInsert({name}, "../gfx/{file}")
 }
+
+inline romname(name) {
+    seek($ffc0)
+  romname:
+    db {name}
+    if pc() - romname > 21 {
+        error "rom name too long"
+    }
+}
+
+inline rominfo() {
+    seek($ffd5)
+}
+inline vectors.native() {
+    seek($ffe0)
+}
+inline vectors.6502() {
+    seek($fff4)
+}
