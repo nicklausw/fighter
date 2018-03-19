@@ -3,20 +3,20 @@
 expression loword(n) = (n & $ffff)
 
 macro seek(offset) {
-    origin (({offset} & 0x3f0000) >> 1) | ({offset} & 0x7fff)
+    origin {offset} & $3fffff
     base {offset}
 }
 
-seek($48000) // 128 kb
+seek($CFFFFF) // 1024K
 
 namespace _mem_ {
     variable wRAM = $0200
     variable wRAMOpen = 0
 
-    variable code = $8000
+    variable code = $C08000
     variable codeOpen = 0
 
-    variable data = $18000
+    variable data = $C10000
     variable dataOpen = 0
 
     variable dPage = $00
@@ -35,12 +35,12 @@ macro closeBlock() {
         _mem_.wRAMOpen = 0
     } else if _mem_.codeOpen {
         _mem_.code = pc()
-        if _mem_.code > $ffbf {
+        if _mem_.code > $C0ffbf {
             error "out of code ROM"
         }
         _mem_.codeOpen = 0
     } else if _mem_.dataOpen {
-        if pc() > $48000 {
+        if pc() >= $CFFFFF {
             error "out of data area"
         }
         _mem_.data = pc()
@@ -107,36 +107,8 @@ macro end() {
     closeBlock()
 }
 
-// gets temporary info about an inserted file.
-inline _tempInsert(file) {
-    evaluate _pc = pc()
-    insert {file}
-    evaluate _size = pc() - {_pc}
-}
-
-// inserts a file, checks if it overruns a bank,
-// and inserts it again at the right place if so.
-// can cause junk data at end of bank. kinda wasteful.
-inline dataInsert(name, file) {
-    _tempInsert({file})
-    if {_size} > $8000 {
-        print "file name: {file}\n"
-        error "file is larger than a bank in size"
-    }
-    if pc() & $ffff < $8000 {
-        seek((pc() & $ff0000) + $8000)
-        _tempInsert({file})
-    }
-    enqueue pc
-    seek({_pc})
-    {name}:; namespace {name} {
-        constant size = {_size}
-    }
-    dequeue pc
-}
-
 inline asset(name, file) {
-    data(); dataInsert({name}, "../gfx/{file}")
+    data(); insert {name}, "../gfx/{file}"
 }
 
 inline romname(name) {

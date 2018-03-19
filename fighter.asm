@@ -6,11 +6,20 @@ include "inc/ppu.inc"
 include "inc/oam.inc"
 include "inc/rle.inc"
 include "inc/init.inc"
+include "inc/player/player.inc"
+
+wRAM()
+  player.new(sektor)
 
 code()
 function Main {
     ppu.copyPalette(palettes.main)
     rle.copy(tilesets.sektor)
+
+    databank($00)
+
+    lda #$01; sta >oam.avail
+    jsl ^oam.findSlot
 
   a16()
     lda #>OBSIZE_32_64; sta >OBSEL // 32x32 sprites
@@ -21,13 +30,13 @@ function Main {
 
     // $50 X and Y
     lda #>$50
-    sta >oam.oamTable+0
-    sta >oam.oamTable+1
+    sta >oam.table+0
+    sta >oam.table+1
 
     // starting from sprite $30
     lda #>$30
-    sta >oam.oamTable+2
-    stz >oam.oamTable+3
+    sta >oam.table+2
+    stz >oam.table+3
 
   a8()
 
@@ -49,42 +58,34 @@ function Main {
     and #<KEY_RIGHT >> 8
     beq +
 
-    lda >oam.oamTable+0
-    clc; adc #$03
-    sta >oam.oamTable+0
+    player.right(3)
 
   +;lda >JOY1CUR+1
     and #<KEY_LEFT >> 8
     beq +
 
-    lda >oam.oamTable+0
-    sec; sbc #$03
-    sta >oam.oamTable+0
+    player.left(3)
 
   +;lda >JOY1CUR+1
     and #<KEY_UP >> 8
     beq +
 
-    lda >oam.oamTable+1
-    sec; sbc #$03
-    sta >oam.oamTable+1
+    player.up(3)
 
   +;lda >JOY1CUR+1
     and #<KEY_DOWN >> 8
     beq +
 
-    lda >oam.oamTable+1
-    clc; adc #$03
-    sta >oam.oamTable+1
+    player.down(3)
 
   +;
-    
+
   xy16()
     ldx <oam.reserved
     //jsr >oam.clear
-    jsr >oam.packHi
-    jsr >ppu.sync
-    jsr >oam.copy
+    jsl ^oam.packHi
+    jsl ^ppu.sync
+    jsl ^oam.copy
 
     bra forever
 }

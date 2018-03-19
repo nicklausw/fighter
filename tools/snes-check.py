@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# snes lorom checksum fixer
+# snes hirom checksum fixer
 # by nicklausw
 
 import sys
@@ -26,7 +26,7 @@ all_bytes &= 0xffff
 # and make the inverse
 inverse = all_bytes ^ 0xffff
 
-f_use.seek(0x7fdc)
+f_use.seek(0xffdc)
 
 f_use.write(bytes([inverse & 0xff]))
 f_use.write(bytes([inverse >> 8]))

@@ -3,9 +3,9 @@ namespace header {
 romname("FIGHTER GAME")
 
 rominfo(); {
-    db $30 // lorom fastrom
+    db $21 // lorom fastrom
     db $00 // no battery ram
-    db $08 // 256K rom
+    db $0a // 1024K rom
 }
 
 vectors.native(); {

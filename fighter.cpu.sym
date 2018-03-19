@@ -1,0 +1,1097 @@
+#SNES65816
+#Visit https://github.com/BenjaminSchulte/fma-snes65816/blob/master/docs/symbols.adoc for specifications.
+
+[SYMBOL]
+00:0000 oam.reserved ANY 1
+00:0002 rle.src ANY 1
+00:0004 rle.index ANY 1
+00:0006 rle.count ANY 1
+00:0008 rle.remain ANY 1
+00:0200 oam.table ANY 1
+00:0400 oam.hiTable ANY 1
+00:0600 oam.avail ANY 1
+00:0800 sektor.x ANY 1
+00:0802 sektor.y ANY 1
+00:2100 SNES.INIDISP ANY 1
+00:2101 SNES.OBSEL ANY 1
+00:2102 SNES.OAMADDL ANY 1
+00:2103 SNES.OAMADDH ANY 1
+00:2104 SNES.OAMDATA ANY 1
+00:2105 SNES.BGMODE ANY 1
+00:2106 SNES.MOSAIC ANY 1
+00:2107 SNES.BG1SC ANY 1
+00:2108 SNES.BG2SC ANY 1
+00:2109 SNES.BG3SC ANY 1
+00:210a SNES.BG3SC ANY 1
+00:210b SNES.BG12NBA ANY 1
+00:210c SNES.BG34NBA ANY 1
+00:210d SNES.BG1HOFS ANY 1
+00:210e SNES.BG1VOFS ANY 1
+00:210f SNES.BG2HOFS ANY 1
+00:2110 SNES.BG2VOFS ANY 1
+00:2111 SNES.BG3HOFS ANY 1
+00:2112 SNES.BG3VOFS ANY 1
+00:2113 SNES.BG4HOFS ANY 1
+00:2114 SNES.BG4VOFS ANY 1
+00:2115 SNES.VMAIN ANY 1
+00:2116 SNES.VMADDL ANY 1
+00:2117 SNES.VMADDH ANY 1
+00:2118 SNES.VMDATAL ANY 1
+00:2119 SNES.VMDATAH ANY 1
+00:211a SNES.M7SEL ANY 1
+00:211b SNES.M7A ANY 1
+00:211c SNES.M7B ANY 1
+00:211d SNES.M7C ANY 1
+00:211e SNES.M7D ANY 1
+00:211f SNES.M7X ANY 1
+00:2120 SNES.M7Y ANY 1
+00:2121 SNES.CGADD ANY 1
+00:2122 SNES.CGDATA ANY 1
+00:2123 SNES.W12SEL ANY 1
+00:2124 SNES.W34SEL ANY 1
+00:2125 SNES.WOBJSEL ANY 1
+00:2126 SNES.WH0 ANY 1
+00:2127 SNES.WH1 ANY 1
+00:2128 SNES.WH2 ANY 1
+00:2129 SNES.WH3 ANY 1
+00:212a SNES.WBGLOG ANY 1
+00:212b SNES.WOBJLOG ANY 1
+00:212c SNES.TM ANY 1
+00:212d SNES.TS ANY 1
+00:212e SNES.TMW ANY 1
+00:212f SNES.TSW ANY 1
+00:2130 SNES.CGWSEL ANY 1
+00:2131 SNES.CGADSUB ANY 1
+00:2132 SNES.COLDATA ANY 1
+00:2133 SNES.SETINI ANY 1
+00:2134 SNES.MPYL ANY 1
+00:2135 SNES.MPYM ANY 1
+00:2136 SNES.MPYH ANY 1
+00:2137 SNES.SLHV ANY 1
+00:2138 SNES.OAMDATAREAD ANY 1
+00:2139 SNES.VMDATALREAD ANY 1
+00:213a SNES.VMDATAHREAD ANY 1
+00:213b SNES.CGDATAREAD ANY 1
+00:213c SNES.OPHCT ANY 1
+00:213d SNES.OPVCT ANY 1
+00:213e SNES.STAT77 ANY 1
+00:213f SNES.STAT78 ANY 1
+00:2140 SNES.APUIO0 ANY 1
+00:2141 SNES.APUIO1 ANY 1
+00:2142 SNES.APUIO2 ANY 1
+00:2143 SNES.APUIO3 ANY 1
+00:2180 SNES.WMDATA ANY 1
+00:2181 SNES.WMADDL ANY 1
+00:2182 SNES.WMADDM ANY 1
+00:2183 SNES.WMADDH ANY 1
+00:4016 SNES.JOYSER0 ANY 1
+00:4017 SNES.JOYSER1 ANY 1
+00:4200 SNES.NMITIMEN ANY 1
+00:4201 SNES.WRIO ANY 1
+00:4202 SNES.WRMPYA ANY 1
+00:4203 SNES.WRMPYB ANY 1
+00:4204 SNES.WRDIVL ANY 1
+00:4205 SNES.WRDIVH ANY 1
+00:4206 SNES.WRDIVB ANY 1
+00:4207 SNES.HTIMEL ANY 1
+00:4208 SNES.HTIMEH ANY 1
+00:4209 SNES.VTIMEL ANY 1
+00:420a SNES.VTIMEH ANY 1
+00:420b SNES.MDMAEN ANY 1
+00:420c SNES.HDMAEN ANY 1
+00:420d SNES.MEMSEL ANY 1
+00:4210 SNES.RDNMI ANY 1
+00:4211 SNES.TIMEUP ANY 1
+00:4212 SNES.HVBJOY ANY 1
+00:4213 SNES.RDIO ANY 1
+00:4214 SNES.RDDIVL ANY 1
+00:4215 SNES.RDDIVH ANY 1
+00:4216 SNES.RDMPYL ANY 1
+00:4217 SNES.RDMPYH ANY 1
+00:4218 SNES.JOY1L ANY 1
+00:4219 SNES.JOY1H ANY 1
+00:421a SNES.JOY2L ANY 1
+00:421b SNES.JOY2H ANY 1
+00:421c SNES.JOY3L ANY 1
+00:421d SNES.JOY3H ANY 1
+00:421e SNES.JOY4L ANY 1
+00:421f SNES.JOY4H ANY 1
+00:4300 SNES.DMAP0 ANY 1
+00:4301 SNES.BBAD0 ANY 1
+00:4302 SNES.A1T0L ANY 1
+00:4303 SNES.A1T0H ANY 1
+00:4304 SNES.A1B0 ANY 1
+00:4305 SNES.DAS0L ANY 1
+00:4306 SNES.DAS0H ANY 1
+00:4307 SNES.DASB0 ANY 1
+00:4308 SNES.A2A0L ANY 1
+00:4309 SNES.A2A0H ANY 1
+00:430a SNES.NTLR0 ANY 1
+00:4310 SNES.DMAP1 ANY 1
+00:4311 SNES.BBAD1 ANY 1
+00:4312 SNES.A1T1L ANY 1
+00:4313 SNES.A1T1H ANY 1
+00:4314 SNES.A1B1 ANY 1
+00:4315 SNES.DAS1L ANY 1
+00:4316 SNES.DAS1H ANY 1
+00:4317 SNES.DASB1 ANY 1
+00:4318 SNES.A2A1L ANY 1
+00:4319 SNES.A2A1H ANY 1
+00:431a SNES.NTLR1 ANY 1
+00:4320 SNES.DMAP2 ANY 1
+00:4321 SNES.BBAD2 ANY 1
+00:4322 SNES.A1T2L ANY 1
+00:4323 SNES.A1T2H ANY 1
+00:4324 SNES.A1B2 ANY 1
+00:4325 SNES.DAS2L ANY 1
+00:4326 SNES.DAS2H ANY 1
+00:4327 SNES.DASB2 ANY 1
+00:4328 SNES.A2A2L ANY 1
+00:4329 SNES.A2A2H ANY 1
+00:432a SNES.NTLR2 ANY 1
+00:4330 SNES.DMAP3 ANY 1
+00:4331 SNES.BBAD3 ANY 1
+00:4332 SNES.A1T3L ANY 1
+00:4333 SNES.A1T3H ANY 1
+00:4334 SNES.A1B3 ANY 1
+00:4335 SNES.DAS3L ANY 1
+00:4336 SNES.DAS3H ANY 1
+00:4337 SNES.DASB3 ANY 1
+00:4338 SNES.A2A3L ANY 1
+00:4339 SNES.A2A3H ANY 1
+00:433a SNES.NTLR3 ANY 1
+00:4340 SNES.DMAP4 ANY 1
+00:4341 SNES.BBAD4 ANY 1
+00:4342 SNES.A1T4L ANY 1
+00:4343 SNES.A1T4H ANY 1
+00:4344 SNES.A1B4 ANY 1
+00:4345 SNES.DAS4L ANY 1
+00:4346 SNES.DAS4H ANY 1
+00:4347 SNES.DASB4 ANY 1
+00:4348 SNES.A2A4L ANY 1
+00:4349 SNES.A2A4H ANY 1
+00:434a SNES.NTLR4 ANY 1
+00:4350 SNES.DMAP5 ANY 1
+00:4351 SNES.BBAD5 ANY 1
+00:4352 SNES.A1T5L ANY 1
+00:4353 SNES.A1T5H ANY 1
+00:4354 SNES.A1B5 ANY 1
+00:4355 SNES.DAS5L ANY 1
+00:4356 SNES.DAS5H ANY 1
+00:4357 SNES.DASB5 ANY 1
+00:4358 SNES.A2A5L ANY 1
+00:4359 SNES.A2A5H ANY 1
+00:435a SNES.NTLR5 ANY 1
+00:4360 SNES.DMAP6 ANY 1
+00:4361 SNES.BBAD6 ANY 1
+00:4362 SNES.A1T6L ANY 1
+00:4363 SNES.A1T6H ANY 1
+00:4364 SNES.A1B6 ANY 1
+00:4365 SNES.DAS6L ANY 1
+00:4366 SNES.DAS6H ANY 1
+00:4367 SNES.DASB6 ANY 1
+00:4368 SNES.A2A6L ANY 1
+00:4369 SNES.A2A6H ANY 1
+00:436a SNES.NTLR6 ANY 1
+00:4370 SNES.DMAP7 ANY 1
+00:4371 SNES.BBAD7 ANY 1
+00:4372 SNES.A1T7L ANY 1
+00:4373 SNES.A1T7H ANY 1
+00:4374 SNES.A1B7 ANY 1
+00:4375 SNES.DAS7L ANY 1
+00:4376 SNES.DAS7H ANY 1
+00:4377 SNES.DASB7 ANY 1
+00:4378 SNES.A2A7L ANY 1
+00:4379 SNES.A2A7H ANY 1
+00:437a SNES.NTLR7 ANY 1
+00:7fc0 header.romname ANY 1
+00:8000 ppu.copy ANY 1
+00:801a ppu.vBlank ANY 1
+00:8022 ppu.sync ANY 1
+00:8031 oam.clear ANY 1
+00:8049 oam.packHi ANY 1
+00:8075 oam.copy ANY 1
+00:8083 oam.findSlot ANY 1
+00:809c rle.copyRAM ANY 1
+00:80a7 rle.copyRAM.loop ANY 1
+00:80c5 rle.copyRAM.rle_inter ANY 1
+00:80d2 rle.copyRAM.copy_fe ANY 1
+00:80e0 rle.copyRAM.fe_loop ANY 1
+00:80f9 rle.copyRAM.done ANY 1
+00:80fa rle.dma ANY 1
+00:8125 init ANY 1
+00:812b init.zero ANY 1
+00:81da init.paletteLoop ANY 1
+00:81eb init.spriteLoop ANY 1
+00:81fd init.spriteLoop2 ANY 1
+00:824e Main ANY 1
+00:82ad Main.forever ANY 1
+00:82af Main.forever ANY 1
+00:82b1 Main.forever ANY 1
+00:82fe rtiPointer ANY 1
+00:8300 rtiPointer ANY 1
+00:8302 rtiPointer ANY 1
+00:ffc0 header.romname ANY 1
+01:8000 palettes.main ANY 1
+01:8100 tilesets.sektor ANY 1
+7e:2000 rle.dat ANY 1
+c0:0000 ppu.copy ANY 1
+c0:001a ppu.vBlank ANY 1
+c0:0021 ppu.vBlank ANY 1
+c0:0022 ppu.sync ANY 1
+c0:0029 ppu.sync ANY 1
+c0:0031 oam.clear ANY 1
+c0:0038 oam.clear ANY 1
+c0:0049 oam.packHi ANY 1
+c0:0050 oam.packHi ANY 1
+c0:0075 oam.copy ANY 1
+c0:007c oam.copy ANY 1
+c0:0083 oam.findSlot ANY 1
+c0:0091 oam.findSlot ANY 1
+c0:009c rle.copyRAM ANY 1
+c0:00a7 rle.copyRAM.loop ANY 1
+c0:00aa rle.copyRAM ANY 1
+c0:00b5 rle.copyRAM.loop ANY 1
+c0:00c5 rle.copyRAM.rle_inter ANY 1
+c0:00d2 rle.copyRAM.copy_fe ANY 1
+c0:00d3 rle.copyRAM.rle_inter ANY 1
+c0:00e0 rle.copyRAM.copy_fe ANY 1
+c0:00ee rle.copyRAM.fe_loop ANY 1
+c0:00f9 rle.copyRAM.done ANY 1
+c0:00fa rle.dma ANY 1
+c0:0107 rle.copyRAM.done ANY 1
+c0:0108 rle.dma ANY 1
+c0:0125 init ANY 1
+c0:012b init.zero ANY 1
+c0:012c init.zero ANY 1
+c0:0137 init ANY 1
+c0:013e init.zero ANY 1
+c0:01da init.paletteLoop ANY 1
+c0:01db init.paletteLoop ANY 1
+c0:01eb init.spriteLoop ANY 1
+c0:01ec init.spriteLoop ANY 1
+c0:01ef init.paletteLoop ANY 1
+c0:01fd init.spriteLoop2 ANY 1
+c0:01fe init.spriteLoop2 ANY 1
+c0:0200 init.spriteLoop ANY 1
+c0:0212 init.spriteLoop2 ANY 1
+c0:024e Main ANY 1
+c0:0250 Main ANY 1
+c0:0264 Main ANY 1
+c0:02af Main.forever ANY 1
+c0:02b2 Main.forever ANY 1
+c0:02b3 Main.forever ANY 1
+c0:02c9 Main.forever ANY 1
+c0:0300 rtiPointer ANY 1
+c0:0306 rtiPointer ANY 1
+c0:0307 rtiPointer ANY 1
+c0:031d rtiPointer ANY 1
+c0:8000 ppu.copy ANY 1
+c0:8007 init.zero ANY 1
+c0:801a ppu.vBlank ANY 1
+c0:8021 ppu.vBlank ANY 1
+c0:8022 ppu.sync ANY 1
+c0:8029 ppu.sync ANY 1
+c0:8031 oam.clear ANY 1
+c0:8038 oam.clear ANY 1
+c0:8049 oam.packHi ANY 1
+c0:8050 oam.packHi ANY 1
+c0:8075 oam.copy ANY 1
+c0:807c oam.copy ANY 1
+c0:8083 oam.findSlot ANY 1
+c0:8084 oam.findSlot ANY 1
+c0:808b oam.findSlot ANY 1
+c0:808d oam.findSlot ANY 1
+c0:8091 oam.findSlot ANY 1
+c0:809c rle.copyRAM ANY 1
+c0:809d rle.copyRAM ANY 1
+c0:80a4 rle.copyRAM ANY 1
+c0:80a6 rle.copyRAM ANY 1
+c0:80a7 rle.copyRAM.loop ANY 1
+c0:80a8 rle.copyRAM.loop ANY 1
+c0:80aa rle.copyRAM ANY 1
+c0:80af rle.copyRAM.loop ANY 1
+c0:80b1 rle.copyRAM.loop ANY 1
+c0:80b5 rle.copyRAM.loop ANY 1
+c0:80b6 init.paletteLoop ANY 1
+c0:80c5 rle.copyRAM.rle_inter ANY 1
+c0:80c6 rle.copyRAM.rle_inter ANY 1
+c0:80c7 init.spriteLoop ANY 1
+c0:80c8 rle.copyRAM.rle_inter ANY 1
+c0:80cd rle.copyRAM.rle_inter ANY 1
+c0:80cf rle.copyRAM.rle_inter ANY 1
+c0:80d2 rle.copyRAM.copy_fe ANY 1
+c0:80d3 rle.copyRAM.rle_inter ANY 1
+c0:80d5 rle.copyRAM.copy_fe ANY 1
+c0:80d9 init.spriteLoop2 ANY 1
+c0:80da rle.copyRAM.copy_fe ANY 1
+c0:80dc rle.copyRAM.copy_fe ANY 1
+c0:80e0 rle.copyRAM.copy_fe ANY 1
+c0:80e1 rle.copyRAM.fe_loop ANY 1
+c0:80e3 rle.copyRAM.fe_loop ANY 1
+c0:80e8 rle.copyRAM.fe_loop ANY 1
+c0:80ea rle.copyRAM.fe_loop ANY 1
+c0:80ee rle.copyRAM.fe_loop ANY 1
+c0:80f9 rle.copyRAM.done ANY 1
+c0:80fa rle.copyRAM.done ANY 1
+c0:80fb rle.dma ANY 1
+c0:80fc rle.copyRAM.done ANY 1
+c0:80fd rle.dma ANY 1
+c0:8101 rle.copyRAM.done ANY 1
+c0:8102 rle.dma ANY 1
+c0:8103 rle.copyRAM.done ANY 1
+c0:8104 rle.dma ANY 1
+c0:8107 rle.copyRAM.done ANY 1
+c0:8108 rle.dma ANY 1
+c0:8125 init ANY 1
+c0:8126 init ANY 1
+c0:8128 init ANY 1
+c0:812a init ANY 1
+c0:812b Main ANY 1
+c0:812c init ANY 1
+c0:812d init.zero ANY 1
+c0:812f init.zero ANY 1
+c0:8131 init ANY 1
+c0:8133 init ANY 1
+c0:8137 init ANY 1
+c0:8138 init.zero ANY 1
+c0:813a init.zero ANY 1
+c0:813b init ANY 1
+c0:813e init.zero ANY 1
+c0:8142 init.zero ANY 1
+c0:818e Main.forever ANY 1
+c0:81db init.paletteLoop ANY 1
+c0:81dc init.paletteLoop ANY 1
+c0:81de init.paletteLoop ANY 1
+c0:81e0 init.paletteLoop ANY 1
+c0:81e2 init.paletteLoop ANY 1
+c0:81e7 init.paletteLoop ANY 1
+c0:81e9 init.paletteLoop ANY 1
+c0:81ec init.spriteLoop ANY 1
+c0:81ed init.paletteLoop ANY 1
+c0:81ef init.paletteLoop ANY 1
+c0:81f1 init.spriteLoop ANY 1
+c0:81f3 init.paletteLoop ANY 1
+c0:81f8 init.spriteLoop ANY 1
+c0:81fa init.spriteLoop ANY 1
+c0:81fe init.spriteLoop ANY 1
+c0:81ff init.spriteLoop2 ANY 1
+c0:8200 init.spriteLoop ANY 1
+c0:8201 init.spriteLoop2 ANY 1
+c0:8203 init.spriteLoop2 ANY 1
+c0:8204 init.spriteLoop ANY 1
+c0:8205 init.spriteLoop2 ANY 1
+c0:820a init.spriteLoop2 ANY 1
+c0:820c init.spriteLoop2 ANY 1
+c0:8210 init.spriteLoop2 ANY 1
+c0:8212 init.spriteLoop2 ANY 1
+c0:8216 init.spriteLoop2 ANY 1
+c0:8250 Main ANY 1
+c0:8251 Main ANY 1
+c0:8253 Main ANY 1
+c0:8255 Main ANY 1
+c0:8257 Main ANY 1
+c0:825c Main ANY 1
+c0:825e Main ANY 1
+c0:8262 Main ANY 1
+c0:8264 Main ANY 1
+c0:8268 Main ANY 1
+c0:82b3 Main.forever ANY 1
+c0:82b4 Main.forever ANY 1
+c0:82b5 Main.forever ANY 1
+c0:82b7 Main.forever ANY 1
+c0:82b9 Main.forever ANY 1
+c0:82bb Main.forever ANY 1
+c0:82bd Main.forever ANY 1
+c0:82c2 Main.forever ANY 1
+c0:82c4 Main.forever ANY 1
+c0:82c6 Main.forever ANY 1
+c0:82c7 Main.forever ANY 1
+c0:82c8 Main.forever ANY 1
+c0:82c9 Main.forever ANY 1
+c0:82cd Main.forever ANY 1
+c0:8307 rtiPointer ANY 1
+c0:8308 rtiPointer ANY 1
+c0:8309 rtiPointer ANY 1
+c0:830b rtiPointer ANY 1
+c0:830d rtiPointer ANY 1
+c0:830f rtiPointer ANY 1
+c0:8311 rtiPointer ANY 1
+c0:8316 rtiPointer ANY 1
+c0:8318 rtiPointer ANY 1
+c0:831a rtiPointer ANY 1
+c0:831b rtiPointer ANY 1
+c0:831c rtiPointer ANY 1
+c0:831d rtiPointer ANY 1
+c0:8321 rtiPointer ANY 1
+c1:0000 palettes.main ANY 1
+c1:0100 tilesets.sektor ANY 1
+c1:0110 tilesets.sektor ANY 1
+c1:0180 tilesets.sektor ANY 1
+c1:0190 tilesets.sektor ANY 1
+c1:01ff tilesets.sektor ANY 1
+c1:0200 tilesets.sektor ANY 1
+c1:0210 tilesets.sektor ANY 1
+c1:8000 palettes.main ANY 1
+c1:8100 tilesets.sektor ANY 1
+df:ffff palettes.main ANY 1
+
+[COMMENT]
+00:801b "data bank 0"
+00:801c "data bank 0"
+00:8025 "wait for leaving previous vblank"
+00:802a "wait for start of this vblank"
+00:8039 "bit 8: offscreen"
+00:8043 "128 sprites times 4 bytes per sprite"
+00:806f "128 sprites divided by 4 sprites per byte"
+00:808e "return anyway if no slots for now."
+00:8091 "return anyway if no slots for now."
+00:80a6 "clear low and high bytes of accumulator"
+00:80a9 "RLE data is terminated by a run length of $FF"
+00:80ab "But what does a run length of 0 do?"
+00:80cf "Restore source index"
+00:80d2 "get number of bytes to copy"
+00:80d5 "don't copy number of bytes to copy!"
+00:80d8 "0 higher bit"
+00:80db "x has bytes remaining"
+00:80e2 "for next byte"
+00:8125 "no interrupts"
+00:8126 "no emulate"
+00:8127 "no emulate"
+00:8128 "for banking and zero"
+00:812c "no decimal"
+00:812d "data bank = pc bank"
+00:812e "data bank = pc bank"
+00:8131 "stack"
+00:8134 "stack"
+00:8135 "direct page at vRAM"
+00:8138 "direct page at vRAM"
+00:81a5 "direct page = "zeropage""
+00:81a8 "direct page = "zeropage""
+00:81ad "access vram in words"
+00:81af "access vram in words"
+00:81b2 "fixed source dma"
+00:81b5 "fixed source dma"
+00:81b8 "vram port address at $0000"
+00:81bb "vram port address at $0000"
+00:81be "source address at $xx:0000"
+00:81c1 "source address at $xx:0000"
+00:81c4 "source bank, probably $80"
+00:81c6 "source bank, probably $80"
+00:81c9 "transfer $ffff+1=65536 bytes"
+00:81cc "transfer $ffff+1=65536 bytes"
+00:81cf "initiate vram clearing"
+00:81d1 "initiate vram clearing"
+00:81eb "x = 240"
+00:81ee "y = 240"
+00:81f1 "tile = 0"
+00:81f4 "priority = 0, no flips"
+00:81fd "size bit = 0"
+00:8203 "wram address to $000000"
+00:8206 "wram address to $000000"
+00:8209 "wram address to $000000"
+00:820c "fixed source dma"
+00:820f "fixed source dma"
+00:8212 "source address"
+00:8215 "source address"
+00:8218 "source bank"
+00:821a "source bank"
+00:821d "transfer $ffff+1=64kb"
+00:8220 "transfer $ffff+1=64kb"
+00:8223 "start transfer"
+00:8225 "start transfer"
+00:8228 "again to get all 128 kb"
+00:822b "blank screen"
+00:8232 "mode 0"
+00:8235 "bg planes at $0000"
+00:8238 "sprite chr at $0000"
+00:823d "plane 0 nametable at $6000"
+00:8240 "plane 1 nametable also at $6000"
+00:8245 "the ppu displays lines 1-224, so set scroll to"
+00:8248 "$ff so that the first displayed line is line 0"
+00:8283 "32x32 sprites"
+00:8285 "32x32 sprites"
+00:8286 "32x32 sprites"
+00:8287 "32x32 sprites"
+00:8288 "32x32 sprites"
+00:828a "32x32 sprites"
+00:829d "enable sprites and plane 0"
+00:829f "enable sprites and plane 0"
+00:82a1 "enable sprites and plane 0"
+00:82a3 "enable sprites and plane 0"
+00:82ac "enable interrupts"
+00:82ae "enable interrupts"
+00:82b0 "enable interrupts"
+c0:001b "data bank 0"
+c0:001c "data bank 0"
+c0:0022 "data bank 0"
+c0:0023 "data bank 0"
+c0:0025 "wait for leaving previous vblank"
+c0:002a "wait for start of this vblank"
+c0:002c "wait for leaving previous vblank"
+c0:0031 "wait for start of this vblank"
+c0:0039 "bit 8: offscreen"
+c0:0040 "bit 8: offscreen"
+c0:0043 "128 sprites times 4 bytes per sprite"
+c0:004a "128 sprites times 4 bytes per sprite"
+c0:006f "128 sprites divided by 4 sprites per byte"
+c0:0076 "128 sprites divided by 4 sprites per byte"
+c0:008e "return anyway if no slots for now."
+c0:0091 "return anyway if no slots for now."
+c0:009c "return anyway if no slots for now."
+c0:009f "return anyway if no slots for now."
+c0:00a6 "clear low and high bytes of accumulator"
+c0:00a9 "RLE data is terminated by a run length of $FF"
+c0:00ab "But what does a run length of 0 do?"
+c0:00b4 "clear low and high bytes of accumulator"
+c0:00b7 "RLE data is terminated by a run length of $FF"
+c0:00b9 "But what does a run length of 0 do?"
+c0:00cf "Restore source index"
+c0:00d2 "get number of bytes to copy"
+c0:00d5 "don't copy number of bytes to copy!"
+c0:00d8 "0 higher bit"
+c0:00db "x has bytes remaining"
+c0:00dd "Restore source index"
+c0:00e0 "get number of bytes to copy"
+c0:00e2 "for next byte"
+c0:00e3 "don't copy number of bytes to copy!"
+c0:00e6 "0 higher bit"
+c0:00e9 "x has bytes remaining"
+c0:00f0 "for next byte"
+c0:0125 "no interrupts"
+c0:0126 "no emulate"
+c0:0127 "no emulate"
+c0:0128 "for banking and zero"
+c0:012c "no decimal"
+c0:012d "no decimal"
+c0:012e "data bank = pc bank"
+c0:012f "data bank = pc bank"
+c0:0131 "stack"
+c0:0132 "stack"
+c0:0134 "stack"
+c0:0135 "stack"
+c0:0136 "direct page at vRAM"
+c0:0137 "no interrupts"
+c0:0138 "no emulate"
+c0:0139 "no emulate"
+c0:013a "for banking and zero"
+c0:013f "no decimal"
+c0:0140 "data bank = $00"
+c0:0142 "data bank = $00"
+c0:0143 "data bank = $00"
+c0:0146 "stack"
+c0:0149 "stack"
+c0:014a "direct page at vRAM"
+c0:014d "direct page at vRAM"
+c0:01a5 "direct page = "zeropage""
+c0:01a6 "direct page = "zeropage""
+c0:01a8 "direct page = "zeropage""
+c0:01a9 "direct page = "zeropage""
+c0:01ad "access vram in words"
+c0:01ae "access vram in words"
+c0:01af "access vram in words"
+c0:01b0 "access vram in words"
+c0:01b2 "fixed source dma"
+c0:01b3 "fixed source dma"
+c0:01b5 "fixed source dma"
+c0:01b6 "fixed source dma"
+c0:01b8 "vram port address at $0000"
+c0:01b9 "vram port address at $0000"
+c0:01ba "direct page = "zeropage""
+c0:01bb "vram port address at $0000"
+c0:01bc "vram port address at $0000"
+c0:01bd "direct page = "zeropage""
+c0:01be "source address at $xx:0000"
+c0:01bf "source address at $xx:0000"
+c0:01c1 "source address at $xx:0000"
+c0:01c2 "access vram in words"
+c0:01c4 "access vram in words"
+c0:01c5 "source bank, probably $80"
+c0:01c6 "source bank, probably $80"
+c0:01c7 "fixed source dma"
+c0:01c9 "transfer $ffff+1=65536 bytes"
+c0:01ca "fixed source dma"
+c0:01cc "transfer $ffff+1=65536 bytes"
+c0:01cd "vram port address at $0000"
+c0:01cf "initiate vram clearing"
+c0:01d0 "vram port address at $0000"
+c0:01d1 "initiate vram clearing"
+c0:01d2 "initiate vram clearing"
+c0:01d3 "source address at $xx:0000"
+c0:01d6 "source address at $xx:0000"
+c0:01d9 "source bank, probably $80"
+c0:01db "source bank, probably $80"
+c0:01de "transfer $ffff+1=65536 bytes"
+c0:01e1 "transfer $ffff+1=65536 bytes"
+c0:01e4 "initiate vram clearing"
+c0:01e6 "initiate vram clearing"
+c0:01eb "x = 240"
+c0:01ec "x = 240"
+c0:01ee "y = 240"
+c0:01ef "y = 240"
+c0:01f1 "tile = 0"
+c0:01f2 "tile = 0"
+c0:01f4 "priority = 0, no flips"
+c0:01f5 "priority = 0, no flips"
+c0:01fd "size bit = 0"
+c0:01fe "size bit = 0"
+c0:0200 "x = 240"
+c0:0203 "y = 240"
+c0:0204 "wram address to $000000"
+c0:0206 "tile = 0"
+c0:0207 "wram address to $000000"
+c0:0209 "priority = 0, no flips"
+c0:020a "wram address to $000000"
+c0:020c "fixed source dma"
+c0:020d "fixed source dma"
+c0:020f "fixed source dma"
+c0:0210 "fixed source dma"
+c0:0212 "size bit = 0"
+c0:0213 "source address"
+c0:0215 "source address"
+c0:0216 "source address"
+c0:0218 "wram address to $000000"
+c0:0219 "source bank"
+c0:021a "source bank"
+c0:021b "wram address to $000000"
+c0:021d "transfer $ffff+1=64kb"
+c0:021e "wram address to $000000"
+c0:0220 "transfer $ffff+1=64kb"
+c0:0221 "fixed source dma"
+c0:0223 "start transfer"
+c0:0224 "fixed source dma"
+c0:0225 "start transfer"
+c0:0226 "start transfer"
+c0:0227 "source address"
+c0:0228 "again to get all 128 kb"
+c0:0229 "again to get all 128 kb"
+c0:022a "source address"
+c0:022b "blank screen"
+c0:022c "blank screen"
+c0:022d "source bank"
+c0:022f "source bank"
+c0:0232 "transfer $ffff+1=64kb"
+c0:0233 "mode 0"
+c0:0235 "transfer $ffff+1=64kb"
+c0:0236 "bg planes at $0000"
+c0:0238 "start transfer"
+c0:0239 "sprite chr at $0000"
+c0:023a "start transfer"
+c0:023d "again to get all 128 kb"
+c0:023e "plane 0 nametable at $6000"
+c0:0240 "blank screen"
+c0:0241 "plane 1 nametable also at $6000"
+c0:0245 "the ppu displays lines 1-224, so set scroll to"
+c0:0246 "the ppu displays lines 1-224, so set scroll to"
+c0:0247 "mode 0"
+c0:0248 "$ff so that the first displayed line is line 0"
+c0:0249 "$ff so that the first displayed line is line 0"
+c0:024a "bg planes at $0000"
+c0:024d "sprite chr at $0000"
+c0:0252 "plane 0 nametable at $6000"
+c0:0255 "plane 1 nametable also at $6000"
+c0:025a "the ppu displays lines 1-224, so set scroll to"
+c0:025d "$ff so that the first displayed line is line 0"
+c0:0285 "32x32 sprites"
+c0:0288 "32x32 sprites"
+c0:0289 "32x32 sprites"
+c0:028b "32x32 sprites"
+c0:028c "32x32 sprites"
+c0:029f "32x32 sprites"
+c0:02a1 "enable sprites and plane 0"
+c0:02a2 "32x32 sprites"
+c0:02a3 "enable sprites and plane 0"
+c0:02a4 "enable sprites and plane 0"
+c0:02a5 "enable sprites and plane 0"
+c0:02ae "enable interrupts"
+c0:02b1 "enable interrupts"
+c0:02b2 "enable interrupts"
+c0:02b9 "enable sprites and plane 0"
+c0:02bb "enable sprites and plane 0"
+c0:02c8 "enable interrupts"
+c0:8000 "no interrupts"
+c0:8001 "no emulate"
+c0:8002 "no emulate"
+c0:8003 "for banking and zero"
+c0:8008 "no decimal"
+c0:8009 "data bank = pc bank"
+c0:800a "data bank = pc bank"
+c0:800d "stack"
+c0:8010 "stack"
+c0:8011 "direct page at vRAM"
+c0:8014 "direct page at vRAM"
+c0:801b "data bank 0"
+c0:801c "data bank 0"
+c0:8022 "data bank 0"
+c0:8023 "data bank 0"
+c0:8025 "wait for leaving previous vblank"
+c0:802a "wait for start of this vblank"
+c0:802c "wait for leaving previous vblank"
+c0:8031 "wait for start of this vblank"
+c0:8039 "bit 8: offscreen"
+c0:8040 "bit 8: offscreen"
+c0:8043 "128 sprites times 4 bytes per sprite"
+c0:804a "128 sprites times 4 bytes per sprite"
+c0:806f "128 sprites divided by 4 sprites per byte"
+c0:8076 "128 sprites divided by 4 sprites per byte"
+c0:8081 "direct page = "zeropage""
+c0:8084 "direct page = "zeropage""
+c0:8089 "access vram in words"
+c0:808b "access vram in words"
+c0:808e "return anyway if no slots for now."
+c0:808f "return anyway if no slots for now."
+c0:8091 "return anyway if no slots for now."
+c0:8092 "return anyway if no slots for now."
+c0:8094 "vram port address at $0000"
+c0:8096 "return anyway if no slots for now."
+c0:8097 "vram port address at $0000"
+c0:8098 "return anyway if no slots for now."
+c0:8099 "return anyway if no slots for now."
+c0:809a "source address at $xx:0000"
+c0:809b "return anyway if no slots for now."
+c0:809c "return anyway if no slots for now."
+c0:809d "source address at $xx:0000"
+c0:809f "return anyway if no slots for now."
+c0:80a0 "source bank, probably $80"
+c0:80a2 "source bank, probably $80"
+c0:80a5 "transfer $ffff+1=65536 bytes"
+c0:80a6 "clear low and high bytes of accumulator"
+c0:80a7 "clear low and high bytes of accumulator"
+c0:80a8 "transfer $ffff+1=65536 bytes"
+c0:80a9 "clear low and high bytes of accumulator"
+c0:80aa "RLE data is terminated by a run length of $FF"
+c0:80ab "But what does a run length of 0 do?"
+c0:80ac "RLE data is terminated by a run length of $FF"
+c0:80ad "initiate vram clearing"
+c0:80ae "clear low and high bytes of accumulator"
+c0:80b0 "clear low and high bytes of accumulator"
+c0:80b1 "RLE data is terminated by a run length of $FF"
+c0:80b3 "RLE data is terminated by a run length of $FF"
+c0:80b4 "clear low and high bytes of accumulator"
+c0:80b5 "But what does a run length of 0 do?"
+c0:80b7 "RLE data is terminated by a run length of $FF"
+c0:80b9 "But what does a run length of 0 do?"
+c0:80c7 "x = 240"
+c0:80ca "y = 240"
+c0:80cd "tile = 0"
+c0:80cf "Restore source index"
+c0:80d0 "Restore source index"
+c0:80d2 "Restore source index"
+c0:80d3 "get number of bytes to copy"
+c0:80d5 "get number of bytes to copy"
+c0:80d6 "don't copy number of bytes to copy!"
+c0:80d7 "Restore source index"
+c0:80d8 "don't copy number of bytes to copy!"
+c0:80d9 "Restore source index"
+c0:80da "get number of bytes to copy"
+c0:80db "0 higher bit"
+c0:80dc "get number of bytes to copy"
+c0:80dd "Restore source index"
+c0:80de "x has bytes remaining"
+c0:80df "don't copy number of bytes to copy!"
+c0:80e0 "get number of bytes to copy"
+c0:80e2 "0 higher bit"
+c0:80e3 "don't copy number of bytes to copy!"
+c0:80e5 "x has bytes remaining"
+c0:80e6 "0 higher bit"
+c0:80e8 "fixed source dma"
+c0:80e9 "x has bytes remaining"
+c0:80ea "for next byte"
+c0:80eb "fixed source dma"
+c0:80ec "for next byte"
+c0:80ee "source address"
+c0:80f0 "for next byte"
+c0:80f1 "source address"
+c0:80f4 "source bank"
+c0:80f6 "source bank"
+c0:80f9 "transfer $ffff+1=64kb"
+c0:80fc "transfer $ffff+1=64kb"
+c0:80ff "start transfer"
+c0:8101 "start transfer"
+c0:8104 "again to get all 128 kb"
+c0:8107 "blank screen"
+c0:810e "mode 0"
+c0:8111 "bg planes at $0000"
+c0:8114 "sprite chr at $0000"
+c0:8119 "plane 0 nametable at $6000"
+c0:811c "plane 1 nametable also at $6000"
+c0:8121 "the ppu displays lines 1-224, so set scroll to"
+c0:8124 "$ff so that the first displayed line is line 0"
+c0:8125 "no interrupts"
+c0:8126 "no interrupts"
+c0:8127 "no emulate"
+c0:8128 "no interrupts"
+c0:8129 "no emulate"
+c0:812a "no interrupts"
+c0:812b "no emulate"
+c0:812c "no interrupts"
+c0:812d "no emulate"
+c0:812e "no emulate"
+c0:812f "for banking and zero"
+c0:8130 "no decimal"
+c0:8131 "no interrupts"
+c0:8132 "no emulate"
+c0:8133 "no interrupts"
+c0:8134 "no emulate"
+c0:8135 "no emulate"
+c0:8136 "for banking and zero"
+c0:8137 "no interrupts"
+c0:8138 "no emulate"
+c0:8139 "no emulate"
+c0:813a "for banking and zero"
+c0:813b "no interrupts"
+c0:813c "no emulate"
+c0:813d "no emulate"
+c0:813e "for banking and zero"
+c0:813f "no decimal"
+c0:8140 "data bank = $00"
+c0:8141 "data bank = pc bank"
+c0:8142 "data bank = $00"
+c0:8143 "no decimal"
+c0:8144 "data bank = $00"
+c0:8145 "direct page at vRAM"
+c0:8146 "data bank = $00"
+c0:8147 "data bank = $00"
+c0:8148 "direct page at vRAM"
+c0:8149 "stack"
+c0:814a "stack"
+c0:814b "direct page at vRAM"
+c0:814d "stack"
+c0:814e "direct page at vRAM"
+c0:8151 "direct page at vRAM"
+c0:8164 "32x32 sprites"
+c0:8167 "32x32 sprites"
+c0:817e "enable sprites and plane 0"
+c0:8180 "enable sprites and plane 0"
+c0:818d "enable interrupts"
+c0:81a6 "direct page = "zeropage""
+c0:81a7 "direct page = "zeropage""
+c0:81a9 "direct page = "zeropage""
+c0:81aa "direct page = "zeropage""
+c0:81ab "direct page = "zeropage""
+c0:81ac "direct page = "zeropage""
+c0:81ad "direct page = "zeropage""
+c0:81ae "direct page = "zeropage""
+c0:81af "access vram in words"
+c0:81b0 "direct page = "zeropage""
+c0:81b1 "access vram in words"
+c0:81b2 "direct page = "zeropage""
+c0:81b3 "access vram in words"
+c0:81b4 "direct page = "zeropage""
+c0:81b5 "direct page = "zeropage""
+c0:81b6 "fixed source dma"
+c0:81b7 "direct page = "zeropage""
+c0:81b8 "direct page = "zeropage""
+c0:81b9 "fixed source dma"
+c0:81ba "direct page = "zeropage""
+c0:81bb "direct page = "zeropage""
+c0:81bc "access vram in words"
+c0:81bd "direct page = "zeropage""
+c0:81be "direct page = "zeropage""
+c0:81bf "fixed source dma"
+c0:81c0 "access vram in words"
+c0:81c1 "direct page = "zeropage""
+c0:81c2 "access vram in words"
+c0:81c3 "vram port address at $0000"
+c0:81c4 "access vram in words"
+c0:81c5 "fixed source dma"
+c0:81c6 "access vram in words"
+c0:81c7 "fixed source dma"
+c0:81c8 "access vram in words"
+c0:81c9 "source address at $xx:0000"
+c0:81ca "fixed source dma"
+c0:81cb "fixed source dma"
+c0:81cc "source bank, probably $80"
+c0:81cd "vram port address at $0000"
+c0:81ce "fixed source dma"
+c0:81cf "transfer $ffff+1=65536 bytes"
+c0:81d0 "vram port address at $0000"
+c0:81d1 "vram port address at $0000"
+c0:81d2 "transfer $ffff+1=65536 bytes"
+c0:81d3 "source address at $xx:0000"
+c0:81d4 "vram port address at $0000"
+c0:81d5 "source bank, probably $80"
+c0:81d6 "source address at $xx:0000"
+c0:81d7 "source address at $xx:0000"
+c0:81d8 "transfer $ffff+1=65536 bytes"
+c0:81d9 "source bank, probably $80"
+c0:81da "source address at $xx:0000"
+c0:81db "source bank, probably $80"
+c0:81dc "transfer $ffff+1=65536 bytes"
+c0:81dd "source bank, probably $80"
+c0:81de "transfer $ffff+1=65536 bytes"
+c0:81df "source bank, probably $80"
+c0:81e0 "initiate vram clearing"
+c0:81e1 "transfer $ffff+1=65536 bytes"
+c0:81e2 "transfer $ffff+1=65536 bytes"
+c0:81e4 "initiate vram clearing"
+c0:81e5 "transfer $ffff+1=65536 bytes"
+c0:81e6 "initiate vram clearing"
+c0:81e8 "initiate vram clearing"
+c0:81ea "initiate vram clearing"
+c0:81ec "x = 240"
+c0:81ed "x = 240"
+c0:81ef "x = 240"
+c0:81f0 "y = 240"
+c0:81f1 "x = 240"
+c0:81f2 "y = 240"
+c0:81f3 "x = 240"
+c0:81f4 "y = 240"
+c0:81f5 "tile = 0"
+c0:81f6 "y = 240"
+c0:81f7 "tile = 0"
+c0:81f8 "x = 240"
+c0:81f9 "tile = 0"
+c0:81fa "x = 240"
+c0:81fb "y = 240"
+c0:81fc "priority = 0, no flips"
+c0:81fd "y = 240"
+c0:81fe "x = 240"
+c0:81ff "size bit = 0"
+c0:8200 "x = 240"
+c0:8201 "y = 240"
+c0:8203 "y = 240"
+c0:8204 "x = 240"
+c0:8205 "size bit = 0"
+c0:8206 "tile = 0"
+c0:8207 "y = 240"
+c0:8208 "wram address to $000000"
+c0:8209 "priority = 0, no flips"
+c0:820a "tile = 0"
+c0:820b "wram address to $000000"
+c0:820c "size bit = 0"
+c0:820d "priority = 0, no flips"
+c0:820e "wram address to $000000"
+c0:820f "wram address to $000000"
+c0:8210 "size bit = 0"
+c0:8211 "wram address to $000000"
+c0:8212 "size bit = 0"
+c0:8213 "wram address to $000000"
+c0:8214 "fixed source dma"
+c0:8215 "wram address to $000000"
+c0:8216 "size bit = 0"
+c0:8217 "fixed source dma"
+c0:8218 "wram address to $000000"
+c0:8219 "wram address to $000000"
+c0:821a "source address"
+c0:821b "wram address to $000000"
+c0:821c "wram address to $000000"
+c0:821d "source address"
+c0:821e "wram address to $000000"
+c0:821f "wram address to $000000"
+c0:8220 "source bank"
+c0:8221 "fixed source dma"
+c0:8222 "wram address to $000000"
+c0:8223 "transfer $ffff+1=64kb"
+c0:8224 "fixed source dma"
+c0:8225 "fixed source dma"
+c0:8226 "transfer $ffff+1=64kb"
+c0:8227 "source address"
+c0:8228 "fixed source dma"
+c0:8229 "source bank"
+c0:822a "source address"
+c0:822b "source address"
+c0:822c "transfer $ffff+1=64kb"
+c0:822d "source bank"
+c0:822e "source address"
+c0:822f "source bank"
+c0:8230 "transfer $ffff+1=64kb"
+c0:8231 "source bank"
+c0:8232 "transfer $ffff+1=64kb"
+c0:8233 "source bank"
+c0:8234 "start transfer"
+c0:8235 "transfer $ffff+1=64kb"
+c0:8236 "transfer $ffff+1=64kb"
+c0:8237 "again to get all 128 kb"
+c0:8238 "start transfer"
+c0:8239 "transfer $ffff+1=64kb"
+c0:823a "start transfer"
+c0:823b "again to get all 128 kb"
+c0:823c "start transfer"
+c0:823d "again to get all 128 kb"
+c0:823e "start transfer"
+c0:823f "mode 0"
+c0:8240 "blank screen"
+c0:8241 "again to get all 128 kb"
+c0:8242 "bg planes at $0000"
+c0:8243 "plane 0 nametable at $6000"
+c0:8244 "blank screen"
+c0:8245 "mode 0"
+c0:8246 "plane 1 nametable also at $6000"
+c0:8247 "mode 0"
+c0:8248 "bg planes at $0000"
+c0:8249 "the ppu displays lines 1-224, so set scroll to"
+c0:824a "bg planes at $0000"
+c0:824b "mode 0"
+c0:824c "plane 0 nametable at $6000"
+c0:824d "sprite chr at $0000"
+c0:824e "bg planes at $0000"
+c0:824f "plane 1 nametable also at $6000"
+c0:8250 "plane 0 nametable at $6000"
+c0:8251 "sprite chr at $0000"
+c0:8252 "plane 0 nametable at $6000"
+c0:8253 "plane 1 nametable also at $6000"
+c0:8254 "the ppu displays lines 1-224, so set scroll to"
+c0:8255 "plane 1 nametable also at $6000"
+c0:8256 "plane 0 nametable at $6000"
+c0:8257 "$ff so that the first displayed line is line 0"
+c0:8258 "the ppu displays lines 1-224, so set scroll to"
+c0:8259 "plane 1 nametable also at $6000"
+c0:825a "the ppu displays lines 1-224, so set scroll to"
+c0:825b "$ff so that the first displayed line is line 0"
+c0:825d "$ff so that the first displayed line is line 0"
+c0:825e "the ppu displays lines 1-224, so set scroll to"
+c0:8261 "$ff so that the first displayed line is line 0"
+c0:8289 "32x32 sprites"
+c0:828a "32x32 sprites"
+c0:828b "32x32 sprites"
+c0:828c "32x32 sprites"
+c0:828d "32x32 sprites"
+c0:828e "32x32 sprites"
+c0:828f "32x32 sprites"
+c0:8290 "32x32 sprites"
+c0:8291 "32x32 sprites"
+c0:8292 "32x32 sprites"
+c0:8293 "32x32 sprites"
+c0:8294 "32x32 sprites"
+c0:8296 "32x32 sprites"
+c0:8298 "32x32 sprites"
+c0:8299 "32x32 sprites"
+c0:829b "32x32 sprites"
+c0:829c "32x32 sprites"
+c0:829d "32x32 sprites"
+c0:829e "32x32 sprites"
+c0:829f "32x32 sprites"
+c0:82a0 "32x32 sprites"
+c0:82a1 "32x32 sprites"
+c0:82a2 "32x32 sprites"
+c0:82a3 "32x32 sprites"
+c0:82a4 "enable sprites and plane 0"
+c0:82a5 "enable sprites and plane 0"
+c0:82a6 "32x32 sprites"
+c0:82a7 "enable sprites and plane 0"
+c0:82a9 "enable sprites and plane 0"
+c0:82ab "enable sprites and plane 0"
+c0:82ad "enable sprites and plane 0"
+c0:82af "enable sprites and plane 0"
+c0:82b2 "enable sprites and plane 0"
+c0:82b3 "enable interrupts"
+c0:82b4 "enable sprites and plane 0"
+c0:82b6 "enable sprites and plane 0"
+c0:82b7 "enable sprites and plane 0"
+c0:82b8 "enable sprites and plane 0"
+c0:82b9 "enable sprites and plane 0"
+c0:82ba "enable sprites and plane 0"
+c0:82bb "enable sprites and plane 0"
+c0:82bc "enable interrupts"
+c0:82bd "enable sprites and plane 0"
+c0:82bf "enable sprites and plane 0"
+c0:82c1 "enable interrupts"
+c0:82c3 "enable interrupts"
+c0:82c5 "enable interrupts"
+c0:82c6 "enable interrupts"
+c0:82c7 "enable interrupts"
+c0:82c8 "enable interrupts"
+c0:82cc "enable interrupts"
+
+[COMMAND]

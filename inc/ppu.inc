@@ -2,20 +2,23 @@ namespace ppu {
 
 code()
 
+// the neatest way for this function to
+// exist in hirom does involve usage of
+// long addresses, sadly.
 function copy {
     php
   axy16()
-    sta >DMAMODE
-    stx >DMAADDR
-    sty >DMALEN
+    sta ^DMAMODE
+    txa; sta ^DMAADDR
+    tya; sta ^DMALEN
   a8()
     phb
     pla
-    sta >DMAADDRBANK
+    sta ^DMAADDRBANK
     lda #%00000001
-    sta >COPYSTART
+    sta ^COPYSTART
     plp
-    rts
+    rtl
 }
 
 
@@ -35,7 +38,7 @@ function sync {
   -;bit >VBLSTATUS  // wait for start of this vblank
     bpl -
     plp
-    rts
+    rtl
 }
 
 
@@ -45,7 +48,7 @@ macro copyPalette(palette) {
     }
 
     lda #$80
-    sta >CGADDR
+    sta ^CGADDR
     databank({palette})
 
     if _REGS_.aSize != 16 || _REGS_.iSize != 16 {
@@ -55,7 +58,7 @@ macro copyPalette(palette) {
     lda #>DMAMODE_CGDATA
     ldx #>{palette}
     ldy #>{palette}.size
-    jsr >ppu.copy
+    jsl ^ppu.copy
     databank($00)
 }
 

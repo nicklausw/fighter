@@ -1,8 +1,8 @@
 Fighter!
 ========
-It's currently a useless demo, but soon I
-hope for this to become a playable SNES
-fighting game.
+It's called Fighter, but I don't really know what I
+want it to end up being. Right now this is my
+"figure out the SNES" repo.
 
 [Uses my fork of bass-untech.](https://github.com/nicklausw/bass-untech)
 
@@ -17,6 +17,4 @@ fighter.sym, that's designed to work with
 [BenjaminSchulte's fork of bsnes-plus.](https://github.com/BenjaminSchulte/bsnes-plus)
 The SNES.BLABLABLA definitions are added by
 the emulator itself, and it also orders the
-labels numerically. It does all this after
-sym2bsnes.lua plays with bass-untech's output.
-It's like those labels went through an entire factory.
+labels numerically.

@@ -114,7 +114,7 @@ function dma {
 
   axy16()
     lda #$0300
-    sta >PPUADDR
+    sta ^PPUADDR
 
     lda #>DMAMODE_PPUDATA
     ldx #>rle.dat
@@ -122,18 +122,18 @@ function dma {
 
   axy16()
 
-    sta >DMAMODE
-    stx >DMAADDR
-    sty >DMALEN
+    sta ^DMAMODE
+    txa; sta ^DMAADDR
+    tya; sta ^DMALEN
 
   a8()
     lda #<bankbyte(rle.dat)
-    sta >DMAADDRBANK
+    sta ^DMAADDRBANK
     lda #%00000001
-    sta >COPYSTART
+    sta ^COPYSTART
 
     plp
-    rts
+    rtl
 }
 
 
@@ -146,7 +146,7 @@ macro copy(data) {
 
     ldx #>{data}
     stx <rle.src
-    jsr >rle.copyRAM
+    jsl ^rle.copyRAM
 }
 
 }

@@ -2,12 +2,12 @@ code()
 function init {
     sei // no interrupts
     clc; xce // no emulate
-    jmp >+ // for banking and zero
+    jsl ^+ // for banking and zero
 
   zero:; db 00
 
   +;cld // no decimal
-    phk; plb // data bank = pc bank
+    lda #$00; pha; plb // data bank = $00
 
   axy16()
     ldx #$1fff; txs // stack
@@ -136,5 +136,5 @@ function init {
     sta >BGSCROLLY+0  // the ppu displays lines 1-224, so set scroll to
     sta >BGSCROLLY+0  // $ff so that the first displayed line is line 0
 
-    jmp >Main
+    jsl ^Main
 }
