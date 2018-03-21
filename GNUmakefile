@@ -11,7 +11,7 @@ gfx/%.rle: gfx/%.chr
 	tools/rle.py $< $@
 
 gfx/%.chr: gfx/%.png
-	tools/snes-tile-tool.py -i $< -o $(subst .png,,$<)
+	tools/snes-tile-tool.py -i $< -o $(<:.png=)
 
 clean:
 	rm -f gfx/*.nam gfx/*.pal gfx/*.rle gfx/*.chr
