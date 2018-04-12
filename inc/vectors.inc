@@ -9,6 +9,14 @@ function init {
   jsl ^initCode // for banking and zero
 }
 
+function vBlank {
+    phb
+    phk; plb // data bank 0
+    bit >NMISTATUS
+    plb
+    rti
+}
+
 function rtiPointer {
     rti
 }

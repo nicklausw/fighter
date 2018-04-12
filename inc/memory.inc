@@ -124,7 +124,7 @@ inline rominfo() {
     seek($ffd5)
 }
 inline vectors.native() {
-    seek($ffe0)
+    seek($ffe4)
 }
 inline vectors.6502() {
     seek($fff4)

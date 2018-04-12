@@ -21,15 +21,6 @@ function copy {
     rtl
 }
 
-
-function vBlank {
-    phb
-    phk; plb // data bank 0
-    bit >NMISTATUS
-    plb
-    rti
-}
-
 function sync {
     php
   a8()

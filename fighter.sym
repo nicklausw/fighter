@@ -9,34 +9,34 @@ c0:00d4 initCode.spriteLoop2 ANY 1
 c1:0000 palettes.main ANY 1
 c1:0100 tilesets.sektor ANY 1
 c0:0126 ppu.copy ANY 1
-c0:0147 ppu.vBlank ANY 1
-c0:014f ppu.sync ANY 1
+c0:0147 ppu.sync ANY 1
 00:0200 oam.table ANY 1
 00:0400 oam.hiTable ANY 1
 00:0600 oam.avail ANY 1
 00:0000 oam.reserved ANY 1
-c0:015e oam.clear ANY 1
-c0:0176 oam.packHi ANY 1
-c0:01a2 oam.copy ANY 1
-c0:01b7 oam.findSlot ANY 1
+c0:0156 oam.clear ANY 1
+c0:016e oam.packHi ANY 1
+c0:019a oam.copy ANY 1
+c0:01af oam.findSlot ANY 1
 00:0002 rle.src ANY 1
 00:0004 rle.index ANY 1
 00:0006 rle.count ANY 1
 00:0008 rle.remain ANY 1
 7e:2000 rle.dat ANY 1
-c0:01d0 rle.copyRAM ANY 1
-c0:01db rle.copyRAM.loop ANY 1
-c0:01f9 rle.copyRAM.rle_inter ANY 1
-c0:0206 rle.copyRAM.copy_fe ANY 1
-c0:0214 rle.copyRAM.fe_loop ANY 1
-c0:022d rle.copyRAM.done ANY 1
-c0:022e rle.dma ANY 1
+c0:01c8 rle.copyRAM ANY 1
+c0:01d3 rle.copyRAM.loop ANY 1
+c0:01f1 rle.copyRAM.rle_inter ANY 1
+c0:01fe rle.copyRAM.copy_fe ANY 1
+c0:020c rle.copyRAM.fe_loop ANY 1
+c0:0225 rle.copyRAM.done ANY 1
+c0:0226 rle.dma ANY 1
 00:0800 sektor.x ANY 1
 00:0802 sektor.y ANY 1
-c0:0261 Main ANY 1
-c0:02c6 Main.forever ANY 1
+c0:0259 Main ANY 1
+c0:02be Main.forever ANY 1
 c0:8000 init ANY 1
-c0:8007 rtiPointer ANY 1
+c0:8007 vBlank ANY 1
+c0:800f rtiPointer ANY 1
 00:ffc0 header.romname ANY 1
 
 [COMMENT]
@@ -91,30 +91,30 @@ c0:0114 "plane 0 nametable at $6000"
 c0:0117 "plane 1 nametable also at $6000"
 c0:011c "the ppu displays lines 1-224, so set scroll to"
 c0:011f "$ff so that the first displayed line is line 0"
-c0:0148 "data bank 0"
-c0:0149 "data bank 0"
-c0:0152 "wait for leaving previous vblank"
-c0:0157 "wait for start of this vblank"
-c0:0166 "bit 8: offscreen"
-c0:0170 "128 sprites times 4 bytes per sprite"
-c0:019c "128 sprites divided by 4 sprites per byte"
-c0:01c2 "return anyway if no slots for now."
-c0:01c5 "return anyway if no slots for now."
-c0:01da "clear low and high bytes of accumulator"
-c0:01dd "RLE data is terminated by a run length of $FF"
-c0:01df "But what does a run length of 0 do?"
-c0:0203 "Restore source index"
-c0:0206 "get number of bytes to copy"
-c0:0209 "don't copy number of bytes to copy!"
-c0:020c "0 higher bit"
-c0:020f "x has bytes remaining"
-c0:0216 "for next byte"
-c0:029c "32x32 sprites"
-c0:029f "32x32 sprites"
-c0:02b6 "enable sprites and plane 0"
-c0:02b8 "enable sprites and plane 0"
-c0:02c5 "enable interrupts"
+c0:014a "wait for leaving previous vblank"
+c0:014f "wait for start of this vblank"
+c0:015e "bit 8: offscreen"
+c0:0168 "128 sprites times 4 bytes per sprite"
+c0:0194 "128 sprites divided by 4 sprites per byte"
+c0:01ba "return anyway if no slots for now."
+c0:01bd "return anyway if no slots for now."
+c0:01d2 "clear low and high bytes of accumulator"
+c0:01d5 "RLE data is terminated by a run length of $FF"
+c0:01d7 "But what does a run length of 0 do?"
+c0:01fb "Restore source index"
+c0:01fe "get number of bytes to copy"
+c0:0201 "don't copy number of bytes to copy!"
+c0:0204 "0 higher bit"
+c0:0207 "x has bytes remaining"
+c0:020e "for next byte"
+c0:0294 "32x32 sprites"
+c0:0297 "32x32 sprites"
+c0:02ae "enable sprites and plane 0"
+c0:02b0 "enable sprites and plane 0"
+c0:02bd "enable interrupts"
 c0:8000 "no interrupts"
 c0:8001 "no emulate"
 c0:8002 "no emulate"
 c0:8003 "for banking and zero"
+c0:8008 "data bank 0"
+c0:8009 "data bank 0"

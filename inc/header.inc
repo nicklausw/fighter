@@ -10,7 +10,7 @@ rominfo(); {
 
 vectors.native(); {
     dw rtiPointer, rtiPointer, rtiPointer
-    dw ppu.vBlank, $ffff, rtiPointer
+    dw vBlank, $ffff, rtiPointer
 }
 
 vectors.6502(); {
