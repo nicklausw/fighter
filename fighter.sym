@@ -1,119 +1,120 @@
 #SNES65816
 
 [SYMBOL]
+c0:0000 zero ANY 1
+c0:0001 initCode ANY 1
+c0:00b1 initCode.paletteLoop ANY 1
+c0:00c2 initCode.spriteLoop ANY 1
+c0:00d4 initCode.spriteLoop2 ANY 1
 c1:0000 palettes.main ANY 1
 c1:0100 tilesets.sektor ANY 1
-c0:8000 ppu.copy ANY 1
-c0:8021 ppu.vBlank ANY 1
-c0:8029 ppu.sync ANY 1
+c0:0126 ppu.copy ANY 1
+c0:0147 ppu.vBlank ANY 1
+c0:014f ppu.sync ANY 1
 00:0200 oam.table ANY 1
 00:0400 oam.hiTable ANY 1
 00:0600 oam.avail ANY 1
 00:0000 oam.reserved ANY 1
-c0:8038 oam.clear ANY 1
-c0:8050 oam.packHi ANY 1
-c0:807c oam.copy ANY 1
-c0:8091 oam.findSlot ANY 1
+c0:015e oam.clear ANY 1
+c0:0176 oam.packHi ANY 1
+c0:01a2 oam.copy ANY 1
+c0:01b7 oam.findSlot ANY 1
 00:0002 rle.src ANY 1
 00:0004 rle.index ANY 1
 00:0006 rle.count ANY 1
 00:0008 rle.remain ANY 1
 7e:2000 rle.dat ANY 1
-c0:80aa rle.copyRAM ANY 1
-c0:80b5 rle.copyRAM.loop ANY 1
-c0:80d3 rle.copyRAM.rle_inter ANY 1
-c0:80e0 rle.copyRAM.copy_fe ANY 1
-c0:80ee rle.copyRAM.fe_loop ANY 1
-c0:8107 rle.copyRAM.done ANY 1
-c0:8108 rle.dma ANY 1
-c0:813b init ANY 1
-c0:8142 init.zero ANY 1
-c0:81f3 init.paletteLoop ANY 1
-c0:8204 init.spriteLoop ANY 1
-c0:8216 init.spriteLoop2 ANY 1
+c0:01d0 rle.copyRAM ANY 1
+c0:01db rle.copyRAM.loop ANY 1
+c0:01f9 rle.copyRAM.rle_inter ANY 1
+c0:0206 rle.copyRAM.copy_fe ANY 1
+c0:0214 rle.copyRAM.fe_loop ANY 1
+c0:022d rle.copyRAM.done ANY 1
+c0:022e rle.dma ANY 1
 00:0800 sektor.x ANY 1
 00:0802 sektor.y ANY 1
-c0:8268 Main ANY 1
-c0:82cd Main.forever ANY 1
-c0:8321 rtiPointer ANY 1
+c0:0261 Main ANY 1
+c0:02c6 Main.forever ANY 1
+c0:8000 init ANY 1
+c0:8007 rtiPointer ANY 1
 00:ffc0 header.romname ANY 1
 
 [COMMENT]
-c0:8022 "data bank 0"
-c0:8023 "data bank 0"
-c0:802c "wait for leaving previous vblank"
-c0:8031 "wait for start of this vblank"
-c0:8040 "bit 8: offscreen"
-c0:804a "128 sprites times 4 bytes per sprite"
-c0:8076 "128 sprites divided by 4 sprites per byte"
-c0:809c "return anyway if no slots for now."
-c0:809f "return anyway if no slots for now."
-c0:80b4 "clear low and high bytes of accumulator"
-c0:80b7 "RLE data is terminated by a run length of $FF"
-c0:80b9 "But what does a run length of 0 do?"
-c0:80dd "Restore source index"
-c0:80e0 "get number of bytes to copy"
-c0:80e3 "don't copy number of bytes to copy!"
-c0:80e6 "0 higher bit"
-c0:80e9 "x has bytes remaining"
-c0:80f0 "for next byte"
-c0:813b "no interrupts"
-c0:813c "no emulate"
-c0:813d "no emulate"
-c0:813e "for banking and zero"
-c0:8143 "no decimal"
-c0:8144 "data bank = $00"
-c0:8146 "data bank = $00"
-c0:8147 "data bank = $00"
-c0:814a "stack"
-c0:814d "stack"
-c0:814e "direct page at vRAM"
-c0:8151 "direct page at vRAM"
-c0:81be "direct page = "zeropage""
-c0:81c1 "direct page = "zeropage""
-c0:81c6 "access vram in words"
-c0:81c8 "access vram in words"
-c0:81cb "fixed source dma"
-c0:81ce "fixed source dma"
-c0:81d1 "vram port address at $0000"
-c0:81d4 "vram port address at $0000"
-c0:81d7 "source address at $xx:0000"
-c0:81da "source address at $xx:0000"
-c0:81dd "source bank, probably $80"
-c0:81df "source bank, probably $80"
-c0:81e2 "transfer $ffff+1=65536 bytes"
-c0:81e5 "transfer $ffff+1=65536 bytes"
-c0:81e8 "initiate vram clearing"
-c0:81ea "initiate vram clearing"
-c0:8204 "x = 240"
-c0:8207 "y = 240"
-c0:820a "tile = 0"
-c0:820d "priority = 0, no flips"
-c0:8216 "size bit = 0"
-c0:821c "wram address to $000000"
-c0:821f "wram address to $000000"
-c0:8222 "wram address to $000000"
-c0:8225 "fixed source dma"
-c0:8228 "fixed source dma"
-c0:822b "source address"
-c0:822e "source address"
-c0:8231 "source bank"
-c0:8233 "source bank"
-c0:8236 "transfer $ffff+1=64kb"
-c0:8239 "transfer $ffff+1=64kb"
-c0:823c "start transfer"
-c0:823e "start transfer"
-c0:8241 "again to get all 128 kb"
-c0:8244 "blank screen"
-c0:824b "mode 0"
-c0:824e "bg planes at $0000"
-c0:8251 "sprite chr at $0000"
-c0:8256 "plane 0 nametable at $6000"
-c0:8259 "plane 1 nametable also at $6000"
-c0:825e "the ppu displays lines 1-224, so set scroll to"
-c0:8261 "$ff so that the first displayed line is line 0"
-c0:82a3 "32x32 sprites"
-c0:82a6 "32x32 sprites"
-c0:82bd "enable sprites and plane 0"
-c0:82bf "enable sprites and plane 0"
-c0:82cc "enable interrupts"
+c0:0001 "no decimal"
+c0:0002 "data bank = $00"
+c0:0004 "data bank = $00"
+c0:0005 "data bank = $00"
+c0:0008 "stack"
+c0:000b "stack"
+c0:000c "direct page at vRAM"
+c0:000f "direct page at vRAM"
+c0:007c "direct page = "zeropage""
+c0:007f "direct page = "zeropage""
+c0:0084 "access vram in words"
+c0:0086 "access vram in words"
+c0:0089 "fixed source dma"
+c0:008c "fixed source dma"
+c0:008f "vram port address at $0000"
+c0:0092 "vram port address at $0000"
+c0:0095 "source address at $xx:0000"
+c0:0098 "source address at $xx:0000"
+c0:009b "source bank, probably $80"
+c0:009d "source bank, probably $80"
+c0:00a0 "transfer $ffff+1=65536 bytes"
+c0:00a3 "transfer $ffff+1=65536 bytes"
+c0:00a6 "initiate vram clearing"
+c0:00a8 "initiate vram clearing"
+c0:00c2 "x = 240"
+c0:00c5 "y = 240"
+c0:00c8 "tile = 0"
+c0:00cb "priority = 0, no flips"
+c0:00d4 "size bit = 0"
+c0:00da "wram address to $000000"
+c0:00dd "wram address to $000000"
+c0:00e0 "wram address to $000000"
+c0:00e3 "fixed source dma"
+c0:00e6 "fixed source dma"
+c0:00e9 "source address"
+c0:00ec "source address"
+c0:00ef "source bank"
+c0:00f1 "source bank"
+c0:00f4 "transfer $ffff+1=64kb"
+c0:00f7 "transfer $ffff+1=64kb"
+c0:00fa "start transfer"
+c0:00fc "start transfer"
+c0:00ff "again to get all 128 kb"
+c0:0102 "blank screen"
+c0:0109 "mode 0"
+c0:010c "bg planes at $0000"
+c0:010f "sprite chr at $0000"
+c0:0114 "plane 0 nametable at $6000"
+c0:0117 "plane 1 nametable also at $6000"
+c0:011c "the ppu displays lines 1-224, so set scroll to"
+c0:011f "$ff so that the first displayed line is line 0"
+c0:0148 "data bank 0"
+c0:0149 "data bank 0"
+c0:0152 "wait for leaving previous vblank"
+c0:0157 "wait for start of this vblank"
+c0:0166 "bit 8: offscreen"
+c0:0170 "128 sprites times 4 bytes per sprite"
+c0:019c "128 sprites divided by 4 sprites per byte"
+c0:01c2 "return anyway if no slots for now."
+c0:01c5 "return anyway if no slots for now."
+c0:01da "clear low and high bytes of accumulator"
+c0:01dd "RLE data is terminated by a run length of $FF"
+c0:01df "But what does a run length of 0 do?"
+c0:0203 "Restore source index"
+c0:0206 "get number of bytes to copy"
+c0:0209 "don't copy number of bytes to copy!"
+c0:020c "0 higher bit"
+c0:020f "x has bytes remaining"
+c0:0216 "for next byte"
+c0:029c "32x32 sprites"
+c0:029f "32x32 sprites"
+c0:02b6 "enable sprites and plane 0"
+c0:02b8 "enable sprites and plane 0"
+c0:02c5 "enable interrupts"
+c0:8000 "no interrupts"
+c0:8001 "no emulate"
+c0:8002 "no emulate"
+c0:8003 "for banking and zero"

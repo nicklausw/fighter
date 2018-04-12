@@ -1,11 +1,11 @@
 include "inc/snes.inc"
 include "inc/memory.inc"
 
+include "inc/init.inc"
 include "inc/data.inc"
 include "inc/ppu.inc"
 include "inc/oam.inc"
 include "inc/rle.inc"
-include "inc/init.inc"
 include "inc/player/player.inc"
 
 wRAM()
@@ -90,10 +90,7 @@ function Main {
     bra forever
 }
 
-function rtiPointer {
-    rti
-}
-
+include "inc/vectors.inc"
 
 end()
 

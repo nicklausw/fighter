@@ -1,12 +1,8 @@
 code()
-function init {
-    sei // no interrupts
-    clc; xce // no emulate
-    jsl ^+ // for banking and zero
 
-  zero:; db 00
-
-  +;cld // no decimal
+zero:; db 00
+function initCode {
+    cld // no decimal
     lda #$00; pha; plb // data bank = $00
 
   axy16()

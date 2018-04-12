@@ -13,7 +13,7 @@ namespace _mem_ {
     variable wRAM = $0200
     variable wRAMOpen = 0
 
-    variable code = $C08000
+    variable code = $C00000
     variable codeOpen = 0
 
     variable data = $C10000
