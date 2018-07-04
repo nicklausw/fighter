@@ -3,7 +3,8 @@ graphics_chr = $(graphics_png:.png=.chr)
 graphics_rle = $(graphics_chr:.chr=.rle)
 
 all: $(graphics_rle)
-	bass-untech -require-modifier -benchmark -strict -sym fighter.sym -o fighter.sfc fighter.asm
+	bass-ultima -require-modifier -benchmark -strict -sym fighter.old.sym -o fighter.sfc fighter.asm
+	tools/sym.py fighter.old.sym fighter.sym; rm -f fighter.old.sym
 	tools/snes-check.py fighter.sfc
 	bsnes --enable-debug-interface --break-on-brk fighter.sfc
 

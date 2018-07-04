@@ -4,7 +4,7 @@ It's called Fighter, but I don't really know what I
 want it to end up being. Right now this is my
 "figure out the SNES" repo.
 
-[Uses my fork of bass-untech.](https://github.com/nicklausw/bass-untech)
+[Uses my fork of bass, aka bass-ultima.](https://github.com/nicklausw/bass-ultima)
 
 Credit goes to UnDisbeliever for some of
 the framework going on inside the code
